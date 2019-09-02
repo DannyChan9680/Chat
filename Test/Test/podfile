@@ -1,0 +1,10 @@
+platform :ios,"10.14"
+
+target 'Test' do
+
+    project 'Test'
+    use_frameworks!
+    pod 'Alamofire'
+
+end
+

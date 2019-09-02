@@ -1,0 +1,403 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		64076AA722F2CE06008BB4BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076AA622F2CE06008BB4BD /* AppDelegate.m */; };
+		64076AAA22F2CE06008BB4BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076AA922F2CE06008BB4BD /* ViewController.m */; };
+		64076AAD22F2CE06008BB4BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64076AAB22F2CE06008BB4BD /* Main.storyboard */; };
+		64076AAF22F2CE06008BB4BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64076AAE22F2CE06008BB4BD /* Assets.xcassets */; };
+		64076AB222F2CE06008BB4BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64076AB022F2CE06008BB4BD /* LaunchScreen.storyboard */; };
+		64076AB522F2CE06008BB4BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076AB422F2CE06008BB4BD /* main.m */; };
+		64076ACC22F2D09F008BB4BD /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076AC222F2D09F008BB4BD /* AFURLResponseSerialization.m */; };
+		64076ACD22F2D09F008BB4BD /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076AC322F2D09F008BB4BD /* AFHTTPSessionManager.m */; };
+		64076ACE22F2D09F008BB4BD /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076AC522F2D09F008BB4BD /* AFURLSessionManager.m */; };
+		64076ACF22F2D09F008BB4BD /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076AC622F2D09F008BB4BD /* AFURLRequestSerialization.m */; };
+		64076AD022F2D09F008BB4BD /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076AC822F2D09F008BB4BD /* AFNetworkReachabilityManager.m */; };
+		64076AD122F2D09F008BB4BD /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076AC922F2D09F008BB4BD /* AFSecurityPolicy.m */; };
+		64076ADA22F2D2AA008BB4BD /* BookModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 64076AD922F2D2AA008BB4BD /* BookModel.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		64076AA222F2CE06008BB4BD /* AFNetwork网络库.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AFNetwork网络库.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		64076AA522F2CE06008BB4BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		64076AA622F2CE06008BB4BD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		64076AA822F2CE06008BB4BD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		64076AA922F2CE06008BB4BD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		64076AAC22F2CE06008BB4BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		64076AAE22F2CE06008BB4BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		64076AB122F2CE06008BB4BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		64076AB322F2CE06008BB4BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64076AB422F2CE06008BB4BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		64076ABE22F2D09F008BB4BD /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
+		64076ABF22F2D09F008BB4BD /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		64076AC022F2D09F008BB4BD /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
+		64076AC122F2D09F008BB4BD /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		64076AC222F2D09F008BB4BD /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		64076AC322F2D09F008BB4BD /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		64076AC422F2D09F008BB4BD /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		64076AC522F2D09F008BB4BD /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		64076AC622F2D09F008BB4BD /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		64076AC722F2D09F008BB4BD /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
+		64076AC822F2D09F008BB4BD /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		64076AC922F2D09F008BB4BD /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
+		64076ACA22F2D09F008BB4BD /* AFCompatibilityMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFCompatibilityMacros.h; sourceTree = "<group>"; };
+		64076ACB22F2D09F008BB4BD /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		64076AD822F2D2AA008BB4BD /* BookModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookModel.h; sourceTree = "<group>"; };
+		64076AD922F2D2AA008BB4BD /* BookModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookModel.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		64076A9F22F2CE06008BB4BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		64076A9922F2CE06008BB4BD = {
+			isa = PBXGroup;
+			children = (
+				64076ADB22F2D2D9008BB4BD /* Supporting Files */,
+				64076ABD22F2D09F008BB4BD /* AFNetworking */,
+				64076AA422F2CE06008BB4BD /* AFNetwork网络库 */,
+				64076AA322F2CE06008BB4BD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		64076AA322F2CE06008BB4BD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				64076AA222F2CE06008BB4BD /* AFNetwork网络库.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		64076AA422F2CE06008BB4BD /* AFNetwork网络库 */ = {
+			isa = PBXGroup;
+			children = (
+				64076AA522F2CE06008BB4BD /* AppDelegate.h */,
+				64076AA622F2CE06008BB4BD /* AppDelegate.m */,
+				64076AA822F2CE06008BB4BD /* ViewController.h */,
+				64076AA922F2CE06008BB4BD /* ViewController.m */,
+				64076AAB22F2CE06008BB4BD /* Main.storyboard */,
+				64076AAE22F2CE06008BB4BD /* Assets.xcassets */,
+				64076AB022F2CE06008BB4BD /* LaunchScreen.storyboard */,
+				64076AB322F2CE06008BB4BD /* Info.plist */,
+				64076AB422F2CE06008BB4BD /* main.m */,
+			);
+			path = "AFNetwork网络库";
+			sourceTree = "<group>";
+		};
+		64076ABD22F2D09F008BB4BD /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				64076ABE22F2D09F008BB4BD /* AFSecurityPolicy.h */,
+				64076ABF22F2D09F008BB4BD /* AFNetworkReachabilityManager.h */,
+				64076AC022F2D09F008BB4BD /* AFURLSessionManager.h */,
+				64076AC122F2D09F008BB4BD /* AFURLRequestSerialization.h */,
+				64076AC222F2D09F008BB4BD /* AFURLResponseSerialization.m */,
+				64076AC322F2D09F008BB4BD /* AFHTTPSessionManager.m */,
+				64076AC422F2D09F008BB4BD /* AFURLResponseSerialization.h */,
+				64076AC522F2D09F008BB4BD /* AFURLSessionManager.m */,
+				64076AC622F2D09F008BB4BD /* AFURLRequestSerialization.m */,
+				64076AC722F2D09F008BB4BD /* AFNetworking.h */,
+				64076AC822F2D09F008BB4BD /* AFNetworkReachabilityManager.m */,
+				64076AC922F2D09F008BB4BD /* AFSecurityPolicy.m */,
+				64076ACA22F2D09F008BB4BD /* AFCompatibilityMacros.h */,
+				64076ACB22F2D09F008BB4BD /* AFHTTPSessionManager.h */,
+			);
+			name = AFNetworking;
+			path = ../../../CivetIM/Pods/AFNetworking/AFNetworking;
+			sourceTree = "<group>";
+		};
+		64076ADB22F2D2D9008BB4BD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				64076AD922F2D2AA008BB4BD /* BookModel.m */,
+				64076AD822F2D2AA008BB4BD /* BookModel.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		64076AA122F2CE06008BB4BD /* AFNetwork网络库 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64076AB822F2CE06008BB4BD /* Build configuration list for PBXNativeTarget "AFNetwork网络库" */;
+			buildPhases = (
+				64076A9E22F2CE06008BB4BD /* Sources */,
+				64076A9F22F2CE06008BB4BD /* Frameworks */,
+				64076AA022F2CE06008BB4BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AFNetwork网络库";
+			productName = "AFNetwork网络库";
+			productReference = 64076AA222F2CE06008BB4BD /* AFNetwork网络库.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		64076A9A22F2CE06008BB4BD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1030;
+				ORGANIZATIONNAME = yanghao;
+				TargetAttributes = {
+					64076AA122F2CE06008BB4BD = {
+						CreatedOnToolsVersion = 10.3;
+					};
+				};
+			};
+			buildConfigurationList = 64076A9D22F2CE06008BB4BD /* Build configuration list for PBXProject "AFNetwork网络库" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 64076A9922F2CE06008BB4BD;
+			productRefGroup = 64076AA322F2CE06008BB4BD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				64076AA122F2CE06008BB4BD /* AFNetwork网络库 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		64076AA022F2CE06008BB4BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64076AB222F2CE06008BB4BD /* LaunchScreen.storyboard in Resources */,
+				64076AAF22F2CE06008BB4BD /* Assets.xcassets in Resources */,
+				64076AAD22F2CE06008BB4BD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		64076A9E22F2CE06008BB4BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64076AAA22F2CE06008BB4BD /* ViewController.m in Sources */,
+				64076AD122F2D09F008BB4BD /* AFSecurityPolicy.m in Sources */,
+				64076AB522F2CE06008BB4BD /* main.m in Sources */,
+				64076ACD22F2D09F008BB4BD /* AFHTTPSessionManager.m in Sources */,
+				64076ADA22F2D2AA008BB4BD /* BookModel.m in Sources */,
+				64076ACE22F2D09F008BB4BD /* AFURLSessionManager.m in Sources */,
+				64076ACC22F2D09F008BB4BD /* AFURLResponseSerialization.m in Sources */,
+				64076ACF22F2D09F008BB4BD /* AFURLRequestSerialization.m in Sources */,
+				64076AD022F2D09F008BB4BD /* AFNetworkReachabilityManager.m in Sources */,
+				64076AA722F2CE06008BB4BD /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		64076AAB22F2CE06008BB4BD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				64076AAC22F2CE06008BB4BD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		64076AB022F2CE06008BB4BD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				64076AB122F2CE06008BB4BD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		64076AB622F2CE06008BB4BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		64076AB722F2CE06008BB4BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		64076AB922F2CE06008BB4BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "AFNetwork网络库/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "yanghao.AFNetwork---";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		64076ABA22F2CE06008BB4BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "AFNetwork网络库/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "yanghao.AFNetwork---";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		64076A9D22F2CE06008BB4BD /* Build configuration list for PBXProject "AFNetwork网络库" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64076AB622F2CE06008BB4BD /* Debug */,
+				64076AB722F2CE06008BB4BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64076AB822F2CE06008BB4BD /* Build configuration list for PBXNativeTarget "AFNetwork网络库" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64076AB922F2CE06008BB4BD /* Debug */,
+				64076ABA22F2CE06008BB4BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 64076A9A22F2CE06008BB4BD /* Project object */;
+}

@@ -1,0 +1,50 @@
+{
+    "entry":[
+        {
+            "author":
+            [
+                {
+                    "name":
+                    "$t":"[英]理查德"
+                }
+                }
+            ],
+            "category":{
+                "@schame":"http://www.douban.com/2007#kind",
+                "@term" :"http://www.douban.com/2007#book"
+            },
+            "db:attribute"；
+            [
+                {
+                    "$t":"75122504837"
+                    "name":"isbn10"
+                },
+                {
+                    "$t":"9787512504837"
+                    "name":"isbn13"
+                },
+                {
+                    "$t":"田山"
+                    "name":"translator"
+                },
+                {
+                    "$t":"[英]理查德”
+                    "name":"author"
+                },
+                {
+                    "$t":"49元”
+                    "name":"price"
+                },
+                {
+                    "$t":"国际文化出版社”
+                    "name":"publisher"
+                },
+                {
+                    "$t":"2013-1”
+                    "name":"pudate"
+                },
+            ]
+            ]
+            
+      
+}

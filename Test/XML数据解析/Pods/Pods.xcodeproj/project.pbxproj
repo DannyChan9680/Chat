@@ -1,0 +1,509 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C18A8FD05976DFA9C88F6E6053B698E /* GDataXMLNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 08EAF02FFFDF2A71B621DBB144A0CB7D /* GDataXMLNode.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		439871B8DA66723D91D9BDB295A0B461 /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BA7762A0ECC86BCA3F75A1DD21D9AAE /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4701EB7DB94100DBC21C39DF26AA3DF4 /* GDataXMLNode2-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FEDEA82F60E9C2E494C05681B0EFB0E /* GDataXMLNode2-dummy.m */; };
+		69D18D4229E4AAA3E4687612FC877489 /* Pods-XML数据解析-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 458254BA8EFDB46B7C85E2BB0DF7C4DC /* Pods-XML数据解析-dummy.m */; };
+		7FEA0644FD07E9B2C1BB9E42B3A1C211 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E79FBB5CBD195D57CE29BB19F23C79CC /* Foundation.framework */; };
+		88AF6045BF1E5A0C7E9C3C51EB76CE76 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 768DC4D47623AD2A69C8D8108EDB04D7 /* CoreFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		217C8C17D1FD1065C943338F331D2575 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B025BE6A17007D84FE218C91AAAD4979;
+			remoteInfo = GDataXMLNode2;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		08EAF02FFFDF2A71B621DBB144A0CB7D /* GDataXMLNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = Classess/GDataXMLNode.h; sourceTree = "<group>"; };
+		27E812D8F83AA3BAE89DB783F58228C5 /* Pods-XML数据解析-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XML数据解析-acknowledgements.markdown"; sourceTree = "<group>"; };
+		27FDF2E64BC6F01B63776BAB5DC2F7DB /* Pods-XML数据解析-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XML数据解析-acknowledgements.plist"; sourceTree = "<group>"; };
+		2BA7762A0ECC86BCA3F75A1DD21D9AAE /* GDataXMLNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = Classess/GDataXMLNode.m; sourceTree = "<group>"; };
+		3FEDEA82F60E9C2E494C05681B0EFB0E /* GDataXMLNode2-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "GDataXMLNode2-dummy.m"; sourceTree = "<group>"; };
+		425E92C297E2499AA52DE33DEBC91A2E /* GDataXMLNode2-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "GDataXMLNode2-prefix.pch"; sourceTree = "<group>"; };
+		458254BA8EFDB46B7C85E2BB0DF7C4DC /* Pods-XML数据解析-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XML数据解析-dummy.m"; sourceTree = "<group>"; };
+		480A5520BBF59C8D48FC36D6E74927DE /* Pods-XML数据解析-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XML数据解析-resources.sh"; sourceTree = "<group>"; };
+		768DC4D47623AD2A69C8D8108EDB04D7 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/CoreFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A74AA22CEC1E918D552731CC787C3AE9 /* libPods-XML数据解析.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-XML数据解析.a"; path = "libPods-XML数据解析.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAB5A894702CC43B4D9BDC4FCA7FEB20 /* GDataXMLNode2.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = GDataXMLNode2.xcconfig; sourceTree = "<group>"; };
+		BAC6743028A02ACE87F7D38174441CCC /* Pods-XML数据解析.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XML数据解析.release.xcconfig"; sourceTree = "<group>"; };
+		C37AD2286D0B0A3F0B3F2F4F17F9347F /* Pods-XML数据解析-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XML数据解析-frameworks.sh"; sourceTree = "<group>"; };
+		DA97C0CA99F237189DBD6812F6629AEE /* libGDataXMLNode2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libGDataXMLNode2.a; path = libGDataXMLNode2.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB661FA841D32D2740829BFB91753716 /* Pods-XML数据解析.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XML数据解析.debug.xcconfig"; sourceTree = "<group>"; };
+		E79FBB5CBD195D57CE29BB19F23C79CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0D17ECB4C243C6B901A2E0727DE94E66 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88AF6045BF1E5A0C7E9C3C51EB76CE76 /* CoreFoundation.framework in Frameworks */,
+				7FEA0644FD07E9B2C1BB9E42B3A1C211 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		49842EDD2075D21092BE57292E2BEB28 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16B91ABA13EC4D1EC384B2C04C391D13 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				AAB5A894702CC43B4D9BDC4FCA7FEB20 /* GDataXMLNode2.xcconfig */,
+				3FEDEA82F60E9C2E494C05681B0EFB0E /* GDataXMLNode2-dummy.m */,
+				425E92C297E2499AA52DE33DEBC91A2E /* GDataXMLNode2-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/GDataXMLNode2";
+			sourceTree = "<group>";
+		};
+		1C16CC83184A1034755B83909BAE7CF2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA97C0CA99F237189DBD6812F6629AEE /* libGDataXMLNode2.a */,
+				A74AA22CEC1E918D552731CC787C3AE9 /* libPods-XML数据解析.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3ED5956F068D7082672D7F078B3184E1 /* GDataXMLNode2 */ = {
+			isa = PBXGroup;
+			children = (
+				08EAF02FFFDF2A71B621DBB144A0CB7D /* GDataXMLNode.h */,
+				2BA7762A0ECC86BCA3F75A1DD21D9AAE /* GDataXMLNode.m */,
+				16B91ABA13EC4D1EC384B2C04C391D13 /* Support Files */,
+			);
+			name = GDataXMLNode2;
+			path = GDataXMLNode2;
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE96F0E3F15AF0292D335735AC71BC14 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				898AB171E6FC47351A123BB7335A89C0 /* Pods */,
+				1C16CC83184A1034755B83909BAE7CF2 /* Products */,
+				AC6FBBDDF011370F7D71278C53BDE94B /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		898AB171E6FC47351A123BB7335A89C0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3ED5956F068D7082672D7F078B3184E1 /* GDataXMLNode2 */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		962772A6BDB1EF27EB7ED597121CF266 /* Pods-XML数据解析 */ = {
+			isa = PBXGroup;
+			children = (
+				27E812D8F83AA3BAE89DB783F58228C5 /* Pods-XML数据解析-acknowledgements.markdown */,
+				27FDF2E64BC6F01B63776BAB5DC2F7DB /* Pods-XML数据解析-acknowledgements.plist */,
+				458254BA8EFDB46B7C85E2BB0DF7C4DC /* Pods-XML数据解析-dummy.m */,
+				C37AD2286D0B0A3F0B3F2F4F17F9347F /* Pods-XML数据解析-frameworks.sh */,
+				480A5520BBF59C8D48FC36D6E74927DE /* Pods-XML数据解析-resources.sh */,
+				DB661FA841D32D2740829BFB91753716 /* Pods-XML数据解析.debug.xcconfig */,
+				BAC6743028A02ACE87F7D38174441CCC /* Pods-XML数据解析.release.xcconfig */,
+			);
+			name = "Pods-XML数据解析";
+			path = "Target Support Files/Pods-XML数据解析";
+			sourceTree = "<group>";
+		};
+		AC6FBBDDF011370F7D71278C53BDE94B /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				962772A6BDB1EF27EB7ED597121CF266 /* Pods-XML数据解析 */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		CE96F0E3F15AF0292D335735AC71BC14 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				768DC4D47623AD2A69C8D8108EDB04D7 /* CoreFoundation.framework */,
+				E79FBB5CBD195D57CE29BB19F23C79CC /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		ECA1EFD88B347D9E8FF6930AC7284C20 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C18A8FD05976DFA9C88F6E6053B698E /* GDataXMLNode.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		09977B90327BD99F7183A88BE02A0B95 /* Pods-XML数据解析 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9008AB8436133DB3DFAF81C1087E1BF8 /* Build configuration list for PBXNativeTarget "Pods-XML数据解析" */;
+			buildPhases = (
+				7FB71DA5227F6980C75051828DA3F193 /* Sources */,
+				49842EDD2075D21092BE57292E2BEB28 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE237363200B57584C011162B8864221 /* PBXTargetDependency */,
+			);
+			name = "Pods-XML数据解析";
+			productName = "Pods-XML数据解析";
+			productReference = A74AA22CEC1E918D552731CC787C3AE9 /* libPods-XML数据解析.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		B025BE6A17007D84FE218C91AAAD4979 /* GDataXMLNode2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 14753DACB2574779A8BDCB2E998F7805 /* Build configuration list for PBXNativeTarget "GDataXMLNode2" */;
+			buildPhases = (
+				CE898C571F800ED6F88055FCCEBB21E3 /* Sources */,
+				0D17ECB4C243C6B901A2E0727DE94E66 /* Frameworks */,
+				ECA1EFD88B347D9E8FF6930AC7284C20 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GDataXMLNode2;
+			productName = GDataXMLNode2;
+			productReference = DA97C0CA99F237189DBD6812F6629AEE /* libGDataXMLNode2.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 1C16CC83184A1034755B83909BAE7CF2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B025BE6A17007D84FE218C91AAAD4979 /* GDataXMLNode2 */,
+				09977B90327BD99F7183A88BE02A0B95 /* Pods-XML数据解析 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7FB71DA5227F6980C75051828DA3F193 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69D18D4229E4AAA3E4687612FC877489 /* Pods-XML数据解析-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE898C571F800ED6F88055FCCEBB21E3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				439871B8DA66723D91D9BDB295A0B461 /* GDataXMLNode.m in Sources */,
+				4701EB7DB94100DBC21C39DF26AA3DF4 /* GDataXMLNode2-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CE237363200B57584C011162B8864221 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GDataXMLNode2;
+			target = B025BE6A17007D84FE218C91AAAD4979 /* GDataXMLNode2 */;
+			targetProxy = 217C8C17D1FD1065C943338F331D2575 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		31F18CE1D6A5235051B590E762C2A6B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAB5A894702CC43B4D9BDC4FCA7FEB20 /* GDataXMLNode2.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/GDataXMLNode2/GDataXMLNode2-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = GDataXMLNode2;
+				PRODUCT_NAME = GDataXMLNode2;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		32C11FF3579C37C6F3BEF20AA7F3DE4B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		9ED250786D55AEF7F9DF6B41DC44A5A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB661FA841D32D2740829BFB91753716 /* Pods-XML数据解析.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B9A0794F3EE9800F1A9F7184E61EDC87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAB5A894702CC43B4D9BDC4FCA7FEB20 /* GDataXMLNode2.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/GDataXMLNode2/GDataXMLNode2-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = GDataXMLNode2;
+				PRODUCT_NAME = GDataXMLNode2;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CD2DC59F37214E8378FD4702D2505102 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAC6743028A02ACE87F7D38174441CCC /* Pods-XML数据解析.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EAA4E70ED153CAD7A25BD9F5896280F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		14753DACB2574779A8BDCB2E998F7805 /* Build configuration list for PBXNativeTarget "GDataXMLNode2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B9A0794F3EE9800F1A9F7184E61EDC87 /* Debug */,
+				31F18CE1D6A5235051B590E762C2A6B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAA4E70ED153CAD7A25BD9F5896280F3 /* Debug */,
+				32C11FF3579C37C6F3BEF20AA7F3DE4B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9008AB8436133DB3DFAF81C1087E1BF8 /* Build configuration list for PBXNativeTarget "Pods-XML数据解析" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9ED250786D55AEF7F9DF6B41DC44A5A7 /* Debug */,
+				CD2DC59F37214E8378FD4702D2505102 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
