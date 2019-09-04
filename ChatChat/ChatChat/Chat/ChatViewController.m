@@ -13,9 +13,10 @@
 #import "ChatUserTableViewController.h"
 #import "Masonry.h"
 #import "Firebase.h"
-@import FirebaseMLNLSmartReply;
+//@import FirebaseMLNLSmartReply;
 @import Photos;
 @import FirebaseMLCommon;
+@import MaterialComponents;
 
 @implementation ChatViewController
 
@@ -41,6 +42,7 @@
     _textField.layer.backgroundColor=[[UIColor clearColor] CGColor];
     _textField.layer.borderColor=[[UIColor grayColor] CGColor];
     _textField.layer.borderWidth=1.0;
+    _textField.font=[UIFont systemFontOfSize:20];
     [_textField.layer setMasksToBounds:YES];
     
     _sendButton2= [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -62,16 +64,18 @@
     [_table registerClass:[MeTableViewCell class] forCellReuseIdentifier:NSStringFromClass([MeTableViewCell class])];
     [_table registerClass:[OtherTableViewCell class] forCellReuseIdentifier:NSStringFromClass([OtherTableViewCell class])];
     
-    
     //方法调用
     [self configureDatabase];
     [self configureStorage];
     [self fetchConfig];
-   // [self smartReply];
     [_table reloadData];
     
-   // [self smartReply];
+    
 }
+- (void)replySelected:(MDCChipView *)reply {
+    [_textField insertText:reply.titleLabel.text];
+}
+
 //远程配置定义
 - (void)fetchConfig {
     //设置过期时间
@@ -87,9 +91,15 @@
             NSLog(@"Config fetched!");
           //  [_remoteConfig activateFetched];
             FIRRemoteConfigValue *friendlyMsgLength = _remoteConfig[@"friendly_msg_length"];
+            FIRRemoteConfigValue *friendlyTableColor=_remoteConfig[@"friendly_table_color"];
             if (friendlyMsgLength.source != FIRRemoteConfigSourceStatic) {
                 _msglength = friendlyMsgLength.numberValue.intValue;
                 NSLog(@"Friendly msg length config: %d", _msglength);
+                if(friendlyTableColor.source !=FIRRemoteConfigSourceStatic)
+                {
+                    _table.separatorColor=friendlyTableColor.stringValue.intValue;
+                    NSLog(@"firendly text font config: %@",_table.separatorColor);
+                }
             }
         } else {
             NSLog(@"Config not fetched");
@@ -102,14 +112,15 @@
 //    [self fetchConfig];
 //}
 //智能回复
--(void) smartReply{
+-(void)smartReply{
     _messages = [NSMutableArray array];
     FIRTextMessage *message = [[FIRTextMessage alloc]
                                initWithText:@"How are you?"
                                timestamp:[NSDate date].timeIntervalSince1970
                                userID:_userId
                                isLocalUser:YES];
-    [_messages addObject:message];    FIRNaturalLanguage *naturalLanguage = [FIRNaturalLanguage naturalLanguage];
+    [_messages addObject:message];
+    FIRNaturalLanguage *naturalLanguage = [FIRNaturalLanguage naturalLanguage];
     FIRSmartReply *smartReply = [naturalLanguage smartReply];
     [smartReply suggestRepliesForMessages:_textField.text
                                completion:^(FIRSmartReplySuggestionResult * _Nullable result,
@@ -124,7 +135,7 @@
                                    }
                                }];
 }
-/*文本翻译*/
+//文本翻
 // 长按操作
 -(void)handleLongPress:(UILongPressGestureRecognizer *)gesture
 {
@@ -235,6 +246,7 @@
     NSString *imageURL = message[MessageFieldsimageURL];
     if (imageURL) {
         if ([imageURL hasPrefix:@"gs://"]) {
+            _table.rowHeight=200;
             [[[FIRStorage storage] referenceForURL:imageURL] dataWithMaxSize:INT64_MAX
                                                                   completion:^(NSData *data, NSError *error) {
                                                                       if (error) {
@@ -242,14 +254,15 @@
                                                                           return;
                                                                       }
                                                                       dispatch_async(dispatch_get_main_queue(), ^{
-                                                                          cell.imageView.image = [UIImage imageWithData:data];
+                                                                          cell.bgImageView.image = [UIImage imageWithData:data];
                                                                           [cell setNeedsLayout];
                                                                       });
                                                                   }];
         } else {
-            cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+            cell.bgImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
         }
     } else {
+        _table.rowHeight=100;
         NSString *text = message[MessageFieldstext];
         cell.contentLabel.text = [NSString stringWithFormat:@"%@",text];
         NSString *photoURL = message[MessageFieldsphotoURL];
@@ -258,27 +271,46 @@
             if (URL) {
                 NSData *data = [NSData dataWithContentsOfURL:URL];
                 if (data) {
-                    cell.imageView.image = [UIImage imageWithData:data];
+                    cell.bgImageView.image= [UIImage imageWithData:data];
                 }
             }
         }
     }
-       //设置长按手势
-       UILongPressGestureRecognizer *longPress=[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-       longPress.delegate=self;
-       longPress.minimumPressDuration=1.0;
-       [cell.contentView addGestureRecognizer:longPress];
-       [longPress release];
     return cell;
    }
     //另一方回复信息显示
    else{
+     
        OtherTableViewCell *cell=[_table dequeueReusableCellWithIdentifier:NSStringFromClass([OtherTableViewCell class])];
+       //智能回复
        FIRDataSnapshot *dic = _messages[indexPath.row];
        NSDictionary<NSString *, NSString *> *message = dic.value;
-           NSString *text = message[MessageFieldstext];
-           cell.contentLabel.text = [NSString stringWithFormat:@"%@",text];
-              return cell;
+       
+       FIRNaturalLanguage *naturalLanguage = [FIRNaturalLanguage naturalLanguage];
+       FIRSmartReply *smartReply = [naturalLanguage smartReply];
+       [smartReply suggestRepliesForMessages:_textField
+                                  completion:^(FIRSmartReplySuggestionResult * _Nullable result,
+                                               NSError * _Nullable error) {
+                                      if (error || !result) {
+                                          return;
+                                      }
+                                      if (result.status == FIRSmartReplyResultStatusNotSupportedLanguage) {
+                                          NSLog(@"The languge is not supported !");
+                                      } else if (result.status == FIRSmartReplyResultStatusSuccess) {
+                                         
+                                      }
+                                      for (FIRSmartReplySuggestion *suggestion in result.suggestions) {
+                                          NSLog(@"Suggested reply: %@", suggestion.text);
+                                      }
+                                  }];
+      
+       //设置长按手势
+       UILongPressGestureRecognizer *longPress=[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+       longPress.delegate=self;
+       longPress.minimumPressDuration=1.0;
+       [cell.contentLabel addGestureRecognizer:longPress];
+       [longPress release];
+       return cell;
        }
 }
 

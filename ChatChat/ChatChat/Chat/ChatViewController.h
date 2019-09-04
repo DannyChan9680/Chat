@@ -27,14 +27,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSMutableArray<FIRDataSnapshot *> *messages;
 @property (strong, nonatomic) FIRStorageReference *storageRef;
 @property (nonatomic, strong) FIRRemoteConfig *remoteConfig;
-
-@property (weak ,nonatomic) IBOutlet UITextView *outputTextView;
-@property(weak, nonatomic) IBOutlet UIPickerView *inputPicker;
-@property(weak, nonatomic) IBOutlet UIPickerView *outputPicker;
-@property(weak, nonatomic) IBOutlet UITextView *statusTextView;
-@property(weak, nonatomic) IBOutlet UIButton *sourceDownloadDeleteButton;
-@property(weak, nonatomic) IBOutlet UIButton *targetDownloadDeleteButton;
-
+//智能回复
+@property (strong ,nonatomic) FIRSmartReply * smartReply;
+@property(strong, nonatomic) UIStackView *smartReplyView;
+//翻译
 @property(nonatomic, strong) FIRTranslator *translator;
 @property(nonatomic, strong) NSArray<NSNumber *> *allLanguages;
 

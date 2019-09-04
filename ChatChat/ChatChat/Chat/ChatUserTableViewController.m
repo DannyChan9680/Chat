@@ -46,7 +46,7 @@
     self.title= @"用户列表";
     UIBarButtonItem *cancelBtn=[[UIBarButtonItem alloc] initWithTitle:@"退出" style:UIBarButtonItemStyleDone target:self action:@selector(signOut:)];
     self.navigationItem.rightBarButtonItem=cancelBtn;
-    _senderDisplayName=_textField.text;
+    
 }
 - (IBAction)signOut:(UIButton *)sender {
     FIRAuth *firebaseAuth = [FIRAuth auth];

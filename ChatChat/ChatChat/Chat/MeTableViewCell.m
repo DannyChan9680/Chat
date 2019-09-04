@@ -2,8 +2,11 @@
 //  MeTableViewCell.m
 //  ChatWithEachOther
 //
-//  Created by MJ on 2017/8/10.
-//  Copyright © 2017年 韩明静. All rights reserved.
+//  ChatViewController.h
+//  ChatChat
+//
+//  Created by Civet on 2019/8/26.
+//  Copyright © 2019 limeixiang. All rights reserved.
 //
 
 #import "MeTableViewCell.h"
@@ -107,6 +110,14 @@
         make.centerX.equalTo(weakSelf.bgImageView);
         make.bottom.equalTo(weakSelf.bgImageView);
     }];
-
+    
+    [self.contentLabel addSubview:self.Images];
+    [self.Images mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(weakSelf.contentLabel).offset(15);
+        make.top.equalTo(weakSelf.contentLabel);
+        make.centerX.equalTo(weakSelf.contentLabel);
+        make.bottom.equalTo(weakSelf.contentLabel);
+    }];
+    
 }
 @end

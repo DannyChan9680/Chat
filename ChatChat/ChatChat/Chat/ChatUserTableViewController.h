@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong ,nonatomic) UIButton * btn;
 @property (retain,nonatomic) UITableView* tableview;
 @property (retain,nonatomic) NSMutableArray* arrayData;
-@property (retain ,nonatomic) NSString * senderDisplayName;
+
 @end
 
 NS_ASSUME_NONNULL_END

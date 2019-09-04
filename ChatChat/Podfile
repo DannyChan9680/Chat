@@ -4,6 +4,7 @@ project 'ChatChat.xcodeproj'
 # platform :ios, '9.0'
 
 target 'ChatChat' do
+use_frameworks!
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'Firebase/RemoteConfig'
@@ -18,6 +19,12 @@ pod 'Firebase/MLCommon'
 pod 'Firebase/MLNLSmartReply'
 pod 'Firebase/MLNaturalLanguage'
 pod 'Firebase/MLNLLanguageID'
+
+pod 'MaterialComponents/Buttons'
+pod 'MaterialComponents/Chips'
+pod 'MaterialComponents/List'
+pod 'MaterialComponents/TextFields'
+pod 'MaterialComponents/Buttons+ButtonThemer'
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
   # use_frameworks!
 

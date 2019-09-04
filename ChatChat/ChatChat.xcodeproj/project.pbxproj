@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1EA2D8FE38E0A5C85E00ECB0 /* libPods-ChatChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33EC06EE9DFD9E562581FAB5 /* libPods-ChatChat.a */; };
+		514E8838F6090088DF9D6C39 /* Pods_ChatChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46870FAC5A5CDBB4502934B6 /* Pods_ChatChat.framework */; };
 		6400A0BF2316568900DB4F8B /* Contants.m in Sources */ = {isa = PBXBuildFile; fileRef = 6400A0BD2316568500DB4F8B /* Contants.m */; };
 		6402F1E42317ACE70020BD6C /* OtherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6402F1E02317ACDE0020BD6C /* OtherTableViewCell.m */; };
 		6402F1E52317ACE70020BD6C /* MeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6402F1E12317ACE20020BD6C /* MeTableViewCell.m */; };
@@ -27,7 +27,7 @@
 
 /* Begin PBXFileReference section */
 		15A208F25080EA1365151AA3 /* Pods-ChatChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatChat/Pods-ChatChat.debug.xcconfig"; sourceTree = "<group>"; };
-		33EC06EE9DFD9E562581FAB5 /* libPods-ChatChat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChatChat.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		46870FAC5A5CDBB4502934B6 /* Pods_ChatChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChatChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6400A0BD2316568500DB4F8B /* Contants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contants.m; sourceTree = "<group>"; };
 		6400A0BE2316568900DB4F8B /* Contants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contants.h; sourceTree = "<group>"; };
 		6402F1E02317ACDE0020BD6C /* OtherTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherTableViewCell.m; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EA2D8FE38E0A5C85E00ECB0 /* libPods-ChatChat.a in Frameworks */,
+				514E8838F6090088DF9D6C39 /* Pods_ChatChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,7 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				6405DFA4230E3E9B00306FD2 /* Network.framework */,
-				33EC06EE9DFD9E562581FAB5 /* libPods-ChatChat.a */,
+				46870FAC5A5CDBB4502934B6 /* Pods_ChatChat.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -170,6 +170,7 @@
 				6430A433230CD5430017154E /* Frameworks */,
 				6430A434230CD5430017154E /* Resources */,
 				29C078DD238050332412BAC6 /* [CP] Copy Pods Resources */,
+				F219A5E817E6D81A1832041F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -264,6 +265,42 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChatChat/Pods-ChatChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F219A5E817E6D81A1832041F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ChatChat/Pods-ChatChat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ChatChat/Pods-ChatChat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
