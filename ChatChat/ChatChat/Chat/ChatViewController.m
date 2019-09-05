@@ -16,7 +16,6 @@
 //@import FirebaseMLNLSmartReply;
 @import Photos;
 @import FirebaseMLCommon;
-@import MaterialComponents;
 
 @implementation ChatViewController
 
@@ -72,9 +71,6 @@
     
     
 }
-- (void)replySelected:(MDCChipView *)reply {
-    [_textField insertText:reply.titleLabel.text];
-}
 
 //远程配置定义
 - (void)fetchConfig {
@@ -89,17 +85,10 @@
     [self.remoteConfig fetchWithExpirationDuration:expirationDuration completionHandler:^(FIRRemoteConfigFetchStatus status, NSError *error) {
         if (status == FIRRemoteConfigFetchStatusSuccess) {
             NSLog(@"Config fetched!");
-          //  [_remoteConfig activateFetched];
             FIRRemoteConfigValue *friendlyMsgLength = _remoteConfig[@"friendly_msg_length"];
-            FIRRemoteConfigValue *friendlyTableColor=_remoteConfig[@"friendly_table_color"];
             if (friendlyMsgLength.source != FIRRemoteConfigSourceStatic) {
                 _msglength = friendlyMsgLength.numberValue.intValue;
                 NSLog(@"Friendly msg length config: %d", _msglength);
-                if(friendlyTableColor.source !=FIRRemoteConfigSourceStatic)
-                {
-                    _table.separatorColor=friendlyTableColor.stringValue.intValue;
-                    NSLog(@"firendly text font config: %@",_table.separatorColor);
-                }
             }
         } else {
             NSLog(@"Config not fetched");
@@ -111,31 +100,7 @@
 //- (IBAction)didPressFreshConfig:(id)sender {
 //    [self fetchConfig];
 //}
-//智能回复
--(void)smartReply{
-    _messages = [NSMutableArray array];
-    FIRTextMessage *message = [[FIRTextMessage alloc]
-                               initWithText:@"How are you?"
-                               timestamp:[NSDate date].timeIntervalSince1970
-                               userID:_userId
-                               isLocalUser:YES];
-    [_messages addObject:message];
-    FIRNaturalLanguage *naturalLanguage = [FIRNaturalLanguage naturalLanguage];
-    FIRSmartReply *smartReply = [naturalLanguage smartReply];
-    [smartReply suggestRepliesForMessages:_textField.text
-                               completion:^(FIRSmartReplySuggestionResult * _Nullable result,
-                                            NSError * _Nullable error) {
-                                   if (error || !result) {
-                                       return;
-                                   }
-                                   if (result.status == FIRSmartReplyResultStatusNotSupportedLanguage) {
-                                       NSLog(@"The language is not supported !");
-                                   } else if (result.status == FIRSmartReplyResultStatusSuccess) {
-                                       NSLog(@"I am fine!");
-                                   }
-                               }];
-}
-//文本翻
+//文本翻译
 // 长按操作
 -(void)handleLongPress:(UILongPressGestureRecognizer *)gesture
 {
@@ -220,6 +185,7 @@
     // 向firebase数据库添加数据
     _ref=[[FIRDatabase database] reference];
     [[[_ref child:@"messages"] childByAutoId] setValue:mdata];
+    
 }
 //消息长度变换
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(nonnull NSString *)string {
@@ -238,9 +204,16 @@
     //从firebase数据库当中回调数据
     NSString * id=nil;
     //我方信息显示
-   if(id==self.userId)
+   if(id!=self.userId)
    {
     MeTableViewCell *cell=[_table dequeueReusableCellWithIdentifier:NSStringFromClass([MeTableViewCell class])];
+       
+       //设置长按手势
+       UILongPressGestureRecognizer *longPress=[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+       longPress.delegate=self;
+       longPress.minimumPressDuration=1.0;
+       [cell.bgImageView addGestureRecognizer:longPress];
+       [longPress release];
     FIRDataSnapshot *dic = _messages[indexPath.row];
     NSDictionary<NSString *, NSString *> *message = dic.value;
     NSString *imageURL = message[MessageFieldsimageURL];
@@ -282,13 +255,15 @@
    else{
      
        OtherTableViewCell *cell=[_table dequeueReusableCellWithIdentifier:NSStringFromClass([OtherTableViewCell class])];
+       FIRTextMessage *message = [[FIRTextMessage alloc]
+                                  initWithText:@"How are you?"
+                                  timestamp:[NSDate date].timeIntervalSince1970
+                                  userID:_userId
+                                  isLocalUser:NO];
        //智能回复
-       FIRDataSnapshot *dic = _messages[indexPath.row];
-       NSDictionary<NSString *, NSString *> *message = dic.value;
-       
        FIRNaturalLanguage *naturalLanguage = [FIRNaturalLanguage naturalLanguage];
        FIRSmartReply *smartReply = [naturalLanguage smartReply];
-       [smartReply suggestRepliesForMessages:_textField
+       [smartReply suggestRepliesForMessages:_messages
                                   completion:^(FIRSmartReplySuggestionResult * _Nullable result,
                                                NSError * _Nullable error) {
                                       if (error || !result) {
@@ -297,19 +272,20 @@
                                       if (result.status == FIRSmartReplyResultStatusNotSupportedLanguage) {
                                           NSLog(@"The languge is not supported !");
                                       } else if (result.status == FIRSmartReplyResultStatusSuccess) {
-                                         
+                                          
                                       }
                                       for (FIRSmartReplySuggestion *suggestion in result.suggestions) {
                                           NSLog(@"Suggested reply: %@", suggestion.text);
+                                          cell.contentLabel.text = [NSString stringWithFormat:@"%@",suggestion.text];
                                       }
                                   }];
-      
-       //设置长按手势
-       UILongPressGestureRecognizer *longPress=[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-       longPress.delegate=self;
-       longPress.minimumPressDuration=1.0;
-       [cell.contentLabel addGestureRecognizer:longPress];
-       [longPress release];
+//
+//       //设置长按手势
+//       UILongPressGestureRecognizer *longPress=[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+//       longPress.delegate=self;
+//       longPress.minimumPressDuration=1.0;
+//       [cell.contentLabel addGestureRecognizer:longPress];
+//       [longPress release];
        return cell;
        }
 }

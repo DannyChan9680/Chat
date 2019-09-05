@@ -1,0 +1,15 @@
+//
+//  ChatMix_Swift.pch
+//  ChatChat
+//
+//  Created by Civet on 2019/9/5.
+//  Copyright © 2019 limeixiang. All rights reserved.
+//
+
+#ifndef ChatMix_Swift_pch
+#define ChatMix_Swift_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* ChatMix_Swift_pch */

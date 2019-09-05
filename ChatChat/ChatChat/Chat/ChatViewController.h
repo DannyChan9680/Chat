@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong ,nonatomic) NSString * userId;
 @property (strong, nonatomic) FIRDatabaseReference *ref;
-@property (strong, nonatomic) NSMutableArray<FIRDataSnapshot *> *messages;
+@property (strong, nonatomic) NSMutableArray<FIRTextMessage *> *messages;
 @property (strong, nonatomic) FIRStorageReference *storageRef;
 @property (nonatomic, strong) FIRRemoteConfig *remoteConfig;
 //智能回复
