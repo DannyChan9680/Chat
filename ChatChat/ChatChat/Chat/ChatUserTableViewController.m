@@ -18,9 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    //聊天界面获取用户界面的数值
     ChatViewController * chatView=[[ChatViewController alloc] init];
     chatView.userId=_textField.text;
+    
     _textField=[[UITextField alloc] initWithFrame:CGRectMake(50, 95, 250, 30)];
     [_textField setBorderStyle:UITextBorderStyleRoundedRect];
     _textField.placeholder=@"请输入名称";

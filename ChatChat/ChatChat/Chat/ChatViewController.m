@@ -5,7 +5,6 @@
 //  Created by Civet on 2019/8/26.
 //  Copyright © 2019 limeixiang. All rights reserved.
 //
-
 #import "ChatViewController.h"
 #import "Contants.h"
 #import "MeTableViewCell.h"
@@ -13,6 +12,8 @@
 #import "ChatUserTableViewController.h"
 #import "Masonry.h"
 #import "Firebase.h"
+#import "ApiAI.h"
+#import "AppDelegate.h"
 //@import FirebaseMLNLSmartReply;
 @import Photos;
 @import FirebaseMLCommon;
@@ -55,9 +56,13 @@
     [self.view addSubview:_sendButton2];
     [self.view addSubview:_textField];
     
-    
+    self.userId=@"我";
     self.title=self.userId;
-    
+//    __weak typeof(self) weakSelf=self;
+//
+//    [_table mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(weakSelf.view);
+//    }];
     self.view.backgroundColor=[UIColor whiteColor];
     [self.view addSubview:_table];
     [_table registerClass:[MeTableViewCell class] forCellReuseIdentifier:NSStringFromClass([MeTableViewCell class])];
@@ -85,6 +90,7 @@
     [self.remoteConfig fetchWithExpirationDuration:expirationDuration completionHandler:^(FIRRemoteConfigFetchStatus status, NSError *error) {
         if (status == FIRRemoteConfigFetchStatusSuccess) {
             NSLog(@"Config fetched!");
+            //远程配置消息长度
             FIRRemoteConfigValue *friendlyMsgLength = _remoteConfig[@"friendly_msg_length"];
             if (friendlyMsgLength.source != FIRRemoteConfigSourceStatic) {
                 _msglength = friendlyMsgLength.numberValue.intValue;
@@ -115,34 +121,32 @@
         UIAlertView * alert=[[UIAlertView alloc] initWithTitle:@"翻译" message:nil delegate:self cancelButtonTitle:@"返回" otherButtonTitles:@"确定", nil];
         [alert show];
     }
-    
-//    //获得当前手势触发的在UITableView中的坐标
-//    CGPoint location = [gesture locationInView:_table];
-//    //获得当前坐标对应的indexPath
-//    NSIndexPath *indexPath = [_table indexPathForRowAtPoint:location];
-//
-//    if (indexPath) {
-//        //通过indexpath获得对应的Cell
-//       MeTableViewCell *cell = [_table cellForRowAtIndexPath:indexPath];
-//        //获得添加到cell.contentView中的UILabel
-//        UILabel *label = nil;
-//        for (UIView *view in cell.contentView.subviews) {
-//            if ([view isKindOfClass:[cell.bgImageView class]]) {
-//                if([view isKindOfClass:[cell.contentLabel class]]){
-//                    label=(UILabel *)view;
-//                }
-//            }
-//        }
-//
-//        //获得当前手势点击在UILabe中的坐标
-//        CGPoint p = [gesture locationInView:label];
-//        //看看手势点的坐标是不是在UILabel中
-//        if (CGRectContainsPoint(label.frame, p)) {
-//            NSLog(@"label text : %@", label.text);
-//        }
-//    }
 }
 
+//使用ML KIT 进行智能回复
+//-(void) SmartReply:(FIRSmartReply *)smartReply
+//{
+//    OtherTableViewCell *cell=[_table dequeueReusableCellWithIdentifier:NSStringFromClass([OtherTableViewCell class])];
+//    FIRNaturalLanguage *naturalLanguage = [FIRNaturalLanguage naturalLanguage];
+//    self.smartReply = [naturalLanguage smartReply];
+//    [self.smartReply suggestRepliesForMessages:_messages
+//                               completion:^(FIRSmartReplySuggestionResult * _Nullable result,
+//                                            NSError * _Nullable error) {
+//                                   if (error || !result) {
+//                                       return;
+//                                   }
+//                                   if (result.status == FIRSmartReplyResultStatusNotSupportedLanguage) {
+//                                       NSLog(@"The languge is not supported !");
+//                                   } else if (result.status == FIRSmartReplyResultStatusSuccess) {
+//                                       NSLog(@"successful !");
+//                                   }
+//                                   for (FIRSmartReplySuggestion *suggestion in result.suggestions) {
+//                                       NSLog(@"Suggested reply: %@", suggestion.text);
+//                                       cell.contentLabel.text = [NSString stringWithFormat:@"%@",suggestion.text];
+//                                   }
+//                               }];
+//
+//}
 //上传消息
 -(void)dealloc {
     [super dealloc];
@@ -185,8 +189,8 @@
     // 向firebase数据库添加数据
     _ref=[[FIRDatabase database] reference];
     [[[_ref child:@"messages"] childByAutoId] setValue:mdata];
-    
-}
+
+ }
 //消息长度变换
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(nonnull NSString *)string {
     NSString *text = _textField.text;
@@ -200,23 +204,16 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _messages.count;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     //从firebase数据库当中回调数据
-    NSString * id=nil;
+    FIRDataSnapshot *dic=_messages[indexPath.row];
+    NSDictionary<NSString *, NSString *> *message=dic.value;
+    NSString *imageURL=message[MessageFieldsimageURL];
+    NSString *text=message[MessageFieldstext];
+if (indexPath.row%2==0)  {
     //我方信息显示
-   if(id!=self.userId)
-   {
     MeTableViewCell *cell=[_table dequeueReusableCellWithIdentifier:NSStringFromClass([MeTableViewCell class])];
-       
-       //设置长按手势
-       UILongPressGestureRecognizer *longPress=[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-       longPress.delegate=self;
-       longPress.minimumPressDuration=1.0;
-       [cell.bgImageView addGestureRecognizer:longPress];
-       [longPress release];
-    FIRDataSnapshot *dic = _messages[indexPath.row];
-    NSDictionary<NSString *, NSString *> *message = dic.value;
-    NSString *imageURL = message[MessageFieldsimageURL];
     if (imageURL) {
         if ([imageURL hasPrefix:@"gs://"]) {
             _table.rowHeight=200;
@@ -234,9 +231,9 @@
         } else {
             cell.bgImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
         }
-    } else {
+    }
+    else {
         _table.rowHeight=100;
-        NSString *text = message[MessageFieldstext];
         cell.contentLabel.text = [NSString stringWithFormat:@"%@",text];
         NSString *photoURL = message[MessageFieldsphotoURL];
         if (photoURL) {
@@ -248,46 +245,37 @@
                 }
             }
         }
+      }
+        return cell;
     }
-    return cell;
-   }
-    //另一方回复信息显示
-   else{
-     
-       OtherTableViewCell *cell=[_table dequeueReusableCellWithIdentifier:NSStringFromClass([OtherTableViewCell class])];
-       FIRTextMessage *message = [[FIRTextMessage alloc]
-                                  initWithText:@"How are you?"
-                                  timestamp:[NSDate date].timeIntervalSince1970
-                                  userID:_userId
-                                  isLocalUser:NO];
-       //智能回复
-       FIRNaturalLanguage *naturalLanguage = [FIRNaturalLanguage naturalLanguage];
-       FIRSmartReply *smartReply = [naturalLanguage smartReply];
-       [smartReply suggestRepliesForMessages:_messages
-                                  completion:^(FIRSmartReplySuggestionResult * _Nullable result,
-                                               NSError * _Nullable error) {
-                                      if (error || !result) {
-                                          return;
-                                      }
-                                      if (result.status == FIRSmartReplyResultStatusNotSupportedLanguage) {
-                                          NSLog(@"The languge is not supported !");
-                                      } else if (result.status == FIRSmartReplyResultStatusSuccess) {
-                                          
-                                      }
-                                      for (FIRSmartReplySuggestion *suggestion in result.suggestions) {
-                                          NSLog(@"Suggested reply: %@", suggestion.text);
-                                          cell.contentLabel.text = [NSString stringWithFormat:@"%@",suggestion.text];
-                                      }
-                                  }];
-//
-//       //设置长按手势
-//       UILongPressGestureRecognizer *longPress=[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-//       longPress.delegate=self;
-//       longPress.minimumPressDuration=1.0;
-//       [cell.contentLabel addGestureRecognizer:longPress];
-//       [longPress release];
-       return cell;
-       }
+else{
+        //请求dialogflow实现智能回复
+        OtherTableViewCell *cell=[_table dequeueReusableCellWithIdentifier:NSStringFromClass([OtherTableViewCell class])];
+        //请求dialogflow实现智能回复
+        ApiAI* apiai=[ApiAI sharedApiAI];;
+        AppDelegate * appDelegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+        apiai=appDelegate.apiai;
+        _textRequest=[apiai textRequest];
+        _textRequest.query=MessageFieldstext;
+        [apiai enqueue:_textRequest];
+        [_textRequest setMappedCompletionBlockSuccess:^(AIRequest *request, AIResponse* response) {
+            AIResponseResult *textResponse;
+            if(textResponse=response.result.fulfillment.speech)
+            {
+                _responseMsg=textResponse;
+                cell.contentLabel.text= [NSString stringWithFormat:@"%@",_responseMsg];
+            }
+        } failure:^(AIRequest *request, NSError *error) {
+            NSLog(@"无法响应,错误为：%@",error);
+        }];
+        //设置长按手势
+        UILongPressGestureRecognizer *longPress=[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+        longPress.delegate=self;
+        longPress.minimumPressDuration=1.0;
+        [cell.bgImageView addGestureRecognizer:longPress];
+        [longPress release];
+        return cell;
+    }
 }
 
 //选择图片发送

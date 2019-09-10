@@ -11,6 +11,7 @@
 #import "ChatUserTableViewController.h"
 #import "ChatViewController.h"
 #import "Firebase.h"
+#import "ApiAI.h"
 @interface AppDelegate ()
 
 @end
@@ -23,7 +24,7 @@
 
     self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     //这里加载第一个页面；
-    UINavigationController *navC = [[UINavigationController alloc]initWithRootViewController:[[ChatViewController alloc]init]];
+    UINavigationController *navC = [[UINavigationController alloc]initWithRootViewController:[[LoginViewController alloc]init]];
     
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = navC;
@@ -32,6 +33,12 @@
     //连接firebas
     [FIRApp configure];
     [FIRDatabase.database persistenceEnabled];
+    
+    AIDefaultConfiguration * configuration =[[AIDefaultConfiguration alloc] init];
+    configuration.clientAccessToken=@"37f3fb6092eb4cf09dc587c109205a8b";
+    _apiai=[ApiAI sharedApiAI];
+    [_apiai setConfiguration:configuration];
+    
     return YES;
 }
 

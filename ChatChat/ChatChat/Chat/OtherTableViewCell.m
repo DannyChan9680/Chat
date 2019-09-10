@@ -1,9 +1,9 @@
 //
-//  OtherTableViewCell.m
-//  ChatWithEachOther
+//  ChatViewController.h
+//  ChatChat
 //
-//  Created by MJ on 2017/8/10.
-//  Copyright © 2017年 韩明静. All rights reserved.
+//  Created by Civet on 2019/8/26.
+//  Copyright © 2019 limeixiang. All rights reserved.
 //
 
 #import "OtherTableViewCell.h"

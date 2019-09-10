@@ -1,4 +1,29 @@
 PODS:
+  - ApiAI (0.7.2):
+    - ApiAI/AudioFileConverter (= 0.7.2)
+    - ApiAI/Core (= 0.7.2)
+    - ApiAI/Events (= 0.7.2)
+    - ApiAI/ResponseMapping (= 0.7.2)
+    - ApiAI/UIKit (= 0.7.2)
+    - ApiAI/UserEntities (= 0.7.2)
+    - ApiAI/VoiceFileRequest (= 0.7.2)
+    - ApiAI/VoiceRequest (= 0.7.2)
+  - ApiAI/AudioFileConverter (0.7.2):
+    - ApiAI/Core
+  - ApiAI/Core (0.7.2)
+  - ApiAI/Events (0.7.2):
+    - ApiAI/Core
+  - ApiAI/ResponseMapping (0.7.2):
+    - ApiAI/Core
+  - ApiAI/UIKit (0.7.2):
+    - ApiAI/Core
+    - ApiAI/VoiceRequest
+  - ApiAI/UserEntities (0.7.2):
+    - ApiAI/Core
+  - ApiAI/VoiceFileRequest (0.7.2):
+    - ApiAI/Core
+  - ApiAI/VoiceRequest (0.7.2):
+    - ApiAI/Core
   - Firebase/AdMob (6.5.0):
     - Firebase/CoreOnly
     - Google-Mobile-Ads-SDK (~> 7.47)
@@ -21,6 +46,9 @@ PODS:
   - Firebase/MLCommon (6.5.0):
     - Firebase/CoreOnly
     - FirebaseMLCommon (~> 0.17.0)
+  - Firebase/MLModelInterpreter (6.5.0):
+    - Firebase/CoreOnly
+    - FirebaseMLModelInterpreter (~> 0.17.0)
   - Firebase/MLNaturalLanguage (6.5.0):
     - Firebase/CoreOnly
     - FirebaseMLNaturalLanguage (~> 0.16.3)
@@ -84,6 +112,11 @@ PODS:
     - FirebaseInstanceID (~> 4.2)
     - GoogleUtilities/UserDefaults (~> 6.0)
     - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseMLModelInterpreter (0.17.0):
+    - FirebaseCore (~> 6.0)
+    - FirebaseMLCommon (~> 0.17)
+    - GoogleUtilities/UserDefaults (~> 6.0)
+    - TensorFlowLite (= 1.13.1)
   - FirebaseMLNaturalLanguage (0.16.3):
     - FirebaseCore (~> 6.0)
     - FirebaseMLCommon (~> 0.17)
@@ -156,103 +189,16 @@ PODS:
   - GTMSessionFetcher/Core (1.2.2)
   - leveldb-library (1.20)
   - Masonry (1.1.0)
-  - MaterialComponents/AnimationTiming (85.12.0)
-  - MaterialComponents/Buttons (85.12.0):
-    - MaterialComponents/Elevation
-    - MaterialComponents/Ink
-    - MaterialComponents/private/Math
-    - MaterialComponents/Ripple
-    - MaterialComponents/ShadowElevations
-    - MaterialComponents/ShadowLayer
-    - MaterialComponents/Shapes
-    - MaterialComponents/Typography
-    - MDFInternationalization
-    - MDFTextAccessibility
-  - "MaterialComponents/Buttons+ButtonThemer (85.12.0)":
-    - MaterialComponents/Buttons
-    - "MaterialComponents/Buttons+ColorThemer"
-    - "MaterialComponents/Buttons+ShapeThemer"
-    - "MaterialComponents/Buttons+TypographyThemer"
-    - MaterialComponents/Palettes
-  - "MaterialComponents/Buttons+ColorThemer (85.12.0)":
-    - MaterialComponents/Buttons
-    - MaterialComponents/schemes/Color
-  - "MaterialComponents/Buttons+ShapeThemer (85.12.0)":
-    - MaterialComponents/Buttons
-    - MaterialComponents/schemes/Shape
-  - "MaterialComponents/Buttons+TypographyThemer (85.12.0)":
-    - MaterialComponents/Buttons
-    - MaterialComponents/schemes/Typography
-  - MaterialComponents/Chips (85.12.0):
-    - MaterialComponents/Elevation
-    - MaterialComponents/Ink
-    - MaterialComponents/private/Math
-    - MaterialComponents/Ripple
-    - MaterialComponents/ShadowElevations
-    - MaterialComponents/ShadowLayer
-    - MaterialComponents/ShapeLibrary
-    - MaterialComponents/Shapes
-    - MaterialComponents/TextFields
-    - MaterialComponents/Typography
-    - MDFInternationalization
-  - MaterialComponents/Elevation (85.12.0):
-    - MaterialComponents/private/Color
-    - MaterialComponents/private/Math
-  - MaterialComponents/Ink (85.12.0):
-    - MaterialComponents/private/Color
-    - MaterialComponents/private/Math
-  - MaterialComponents/List (85.12.0):
-    - MaterialComponents/Elevation
-    - MaterialComponents/Ink
-    - MaterialComponents/private/Math
-    - MaterialComponents/Ripple
-    - MaterialComponents/ShadowElevations
-    - MaterialComponents/ShadowLayer
-    - MaterialComponents/Typography
-    - MDFInternationalization
-  - MaterialComponents/Palettes (85.12.0)
-  - MaterialComponents/private/Application (85.12.0)
-  - MaterialComponents/private/Color (85.12.0)
-  - MaterialComponents/private/Math (85.12.0)
-  - MaterialComponents/Ripple (85.12.0):
-    - MaterialComponents/AnimationTiming
-    - MaterialComponents/private/Color
-    - MaterialComponents/private/Math
-  - MaterialComponents/schemes/Color (85.12.0):
-    - MaterialComponents/private/Color
-  - MaterialComponents/schemes/Shape (85.12.0):
-    - MaterialComponents/ShapeLibrary
-    - MaterialComponents/Shapes
-  - MaterialComponents/schemes/Typography (85.12.0):
-    - MaterialComponents/Typography
-  - MaterialComponents/ShadowElevations (85.12.0)
-  - MaterialComponents/ShadowLayer (85.12.0):
-    - MaterialComponents/ShadowElevations
-  - MaterialComponents/ShapeLibrary (85.12.0):
-    - MaterialComponents/private/Math
-    - MaterialComponents/Shapes
-  - MaterialComponents/Shapes (85.12.0):
-    - MaterialComponents/private/Math
-    - MaterialComponents/ShadowLayer
-  - MaterialComponents/TextFields (85.12.0):
-    - MaterialComponents/AnimationTiming
-    - MaterialComponents/Palettes
-    - MaterialComponents/private/Math
-    - MaterialComponents/Typography
-    - MDFInternationalization
-  - MaterialComponents/Typography (85.12.0):
-    - MaterialComponents/private/Application
-    - MaterialComponents/private/Math
-  - MDFInternationalization (2.0.0)
-  - MDFTextAccessibility (2.0.0)
   - nanopb (0.3.901):
     - nanopb/decode (= 0.3.901)
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
   - Protobuf (3.9.0)
+  - TensorFlowLite (1.13.1)
 
 DEPENDENCIES:
+  - ApiAI
   - Firebase/AdMob
   - Firebase/Analytics
   - Firebase/Auth
@@ -260,6 +206,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Messaging
   - Firebase/MLCommon
+  - Firebase/MLModelInterpreter
   - Firebase/MLNaturalLanguage
   - Firebase/MLNLLanguageID
   - Firebase/MLNLSmartReply
@@ -267,14 +214,10 @@ DEPENDENCIES:
   - Firebase/RemoteConfig
   - Firebase/Storage
   - Masonry
-  - MaterialComponents/Buttons
-  - "MaterialComponents/Buttons+ButtonThemer"
-  - MaterialComponents/Chips
-  - MaterialComponents/List
-  - MaterialComponents/TextFields
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ApiAI
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
@@ -286,6 +229,7 @@ SPEC REPOS:
     - FirebaseInstanceID
     - FirebaseMessaging
     - FirebaseMLCommon
+    - FirebaseMLModelInterpreter
     - FirebaseMLNaturalLanguage
     - FirebaseMLNLLanguageID
     - FirebaseMLNLSmartReply
@@ -299,13 +243,12 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - Masonry
-    - MaterialComponents
-    - MDFInternationalization
-    - MDFTextAccessibility
     - nanopb
     - Protobuf
+    - TensorFlowLite
 
 SPEC CHECKSUMS:
+  ApiAI: d4b49d3736f33ce6f3ef66dc33c0e0fccb23579e
   Firebase: dedc9e48ea3f3649ad5f6b982f8a0c73508a14b5
   FirebaseABTesting: a32c488eb75089a61eb3d86db061dfb909d765db
   FirebaseAnalytics: 3fb375bc9d13779add4039716f868d233a473fad
@@ -317,6 +260,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 662b8108a09fe9ed01aafdedba100fde8536b0f6
   FirebaseMessaging: 6bb0bdaf64c55fef7a219b7bb1e94e94a0855ced
   FirebaseMLCommon: b236f9bc8a020d4c36744d6e402b2fb9d6fe3f6d
+  FirebaseMLModelInterpreter: 2ba8ec441be6ea7cbfdaae7ddc6230f6a898d74b
   FirebaseMLNaturalLanguage: a8b1308281ba28950a9a82e084ac998800abd506
   FirebaseMLNLLanguageID: bb78d1a81a610c6e99f756724c0326c732c70cb3
   FirebaseMLNLSmartReply: 94d6270f9ec11591b8988e027aa11e1c3a0f3a55
@@ -330,12 +274,10 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
-  MaterialComponents: 2faa36425ad1cdeca6a2595efe4cf48fce3618c7
-  MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
-  MDFTextAccessibility: 85c09a1bd9c321f494348e632a25063bcda35a53
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1097ca58584c8d9be81bfbf2c5ff5975648dd87a
+  TensorFlowLite: 8b9dc4eb32eac0f8cb660c66bca7604da56dcc5a
 
-PODFILE CHECKSUM: 201c992f6b0af9bd0801682fe531eaa27e8dd06e
+PODFILE CHECKSUM: 925b3ebd2d4e7d71a74f7d6e3be0ee7394204f11
 
 COCOAPODS: 1.5.2

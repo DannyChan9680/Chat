@@ -14,4 +14,6 @@ NSString *const MessageFieldsname = @"name";
 NSString *const MessageFieldstext = @"text";
 NSString *const MessageFieldsphotoURL = @"photoURL";
 NSString *const MessageFieldsimageURL = @"imageURL";
+NSString *const textId=@"textId";
+
 @end
