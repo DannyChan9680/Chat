@@ -1,8 +1,5 @@
 //
 //  MeTableViewCell.m
-//  ChatWithEachOther
-//
-//  ChatViewController.h
 //  ChatChat
 //
 //  Created by Civet on 2019/8/26.
@@ -119,5 +116,6 @@
         make.bottom.equalTo(weakSelf.contentLabel);
     }];
     
+
 }
 @end

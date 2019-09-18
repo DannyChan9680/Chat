@@ -24,19 +24,21 @@
     [super viewDidLoad];
     _msglength = 10;
     _messages = [[NSMutableArray alloc] init];
+    _image=[[UIImage alloc] init];
     
     //设置表单信息
     _table=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 430, 820)];
     _table.separatorColor=[UIColor clearColor];
     _table.delegate=self;
     _table.dataSource=self;
-
+    _table.rowHeight=UITableViewAutomaticDimension;
+    //发送图片按钮
     _sendButton1= [UIButton buttonWithType:UIButtonTypeRoundedRect];
     _sendButton1.frame=CGRectMake(10, 820, 50, 50);
     _sendButton1.backgroundColor=[UIColor greenColor];
     [_sendButton1 setTitle:@"图片" forState:UIControlStateNormal];
     [_sendButton1 addTarget:self action:@selector(didTapAddPhoto:) forControlEvents:UIControlEventTouchUpInside];
-    
+    //消息文本
     _textField=[[UITextView alloc] initWithFrame:CGRectMake(70, 820, 280, 50)];
     _textField.tintColor=[UIColor grayColor];
     _textField.layer.backgroundColor=[[UIColor clearColor] CGColor];
@@ -44,37 +46,42 @@
     _textField.layer.borderWidth=1.0;
     _textField.font=[UIFont systemFontOfSize:20];
     [_textField.layer setMasksToBounds:YES];
-    
+    //发送文字按钮
     _sendButton2= [UIButton buttonWithType:UIButtonTypeRoundedRect];
     _sendButton2.frame=CGRectMake(360, 820, 50, 50);
     _sendButton2.backgroundColor=[UIColor greenColor];
     [_sendButton2 setTitle:@"发送" forState:UIControlStateNormal];
     [_sendButton2 addTarget:self action:@selector(didSendMessage:) forControlEvents:UIControlEventTouchUpInside];
     
-    
+    //界面加载控件
     [self.view addSubview:_sendButton1];
     [self.view addSubview:_sendButton2];
     [self.view addSubview:_textField];
     
     self.userId=@"我";
-    self.title=self.userId;
-//    __weak typeof(self) weakSelf=self;
-//
-//    [_table mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.edges.equalTo(weakSelf.view);
-//    }];
+    self.title=@"聊天";
+    
     self.view.backgroundColor=[UIColor whiteColor];
     [self.view addSubview:_table];
+    //cell注册
     [_table registerClass:[MeTableViewCell class] forCellReuseIdentifier:NSStringFromClass([MeTableViewCell class])];
     [_table registerClass:[OtherTableViewCell class] forCellReuseIdentifier:NSStringFromClass([OtherTableViewCell class])];
-    
+    //设置长按手势
+    UILongPressGestureRecognizer *longPress=[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
+    longPress.delegate=self;
+    longPress.minimumPressDuration=0.5;
+    OtherTableViewCell *cell=[_table dequeueReusableCellWithIdentifier:NSStringFromClass([OtherTableViewCell class])];
+    [cell addGestureRecognizer:longPress];
+    [longPress release];
     //方法调用
     [self configureDatabase];
     [self configureStorage];
     [self fetchConfig];
     [_table reloadData];
-    
-    
+    //通知
+    self.notiContent = [[UNMutableNotificationContent alloc] init];
+    //引入代理
+    [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
 }
 
 //远程配置定义
@@ -169,19 +176,98 @@
 }
 //发送文字消息
 - (IBAction)didSendMessage:(UIButton *)sender {
-    [self textFieldShouldReturn:_textField];
+    [self textFieldShouldReturn:_textField textId:_userId];
 }
 //设置消息代理
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [self sendMessage:@{MessageFieldstext: textField.text}];
+- (BOOL)textFieldShouldReturn:(UITextField *)textField textId:(NSString*) userId {
+    [self sendMessage:@{MessageFieldstext: textField.text,textId:userId}];
     textField.text = @"";
     [self.view endEditing:YES];
     return YES;
 }
+//本地通知
+- (void)addInteractionLocalNotification{
+    
+    UNTextInputNotificationAction *action1 = [UNTextInputNotificationAction actionWithIdentifier:@"replyAction" title:@"文字回复" options:UNNotificationActionOptionNone];
+    UNNotificationAction *action2 = [UNNotificationAction actionWithIdentifier:@"enterAction" title:@"进入应用" options:UNNotificationActionOptionForeground];
+    
+    UNNotificationAction *action3 = [UNNotificationAction actionWithIdentifier:@"cancelAction" title:@"取消" options:UNNotificationActionOptionDestructive];
+    UNNotificationCategory *categroy = [UNNotificationCategory categoryWithIdentifier:@"Categroy" actions:@[action1,action2,action3] intentIdentifiers:@[] options:UNNotificationCategoryOptionCustomDismissAction];
+    
+    [[UNUserNotificationCenter currentNotificationCenter] setNotificationCategories:[NSSet setWithObject:categroy]];
+    [[UNUserNotificationCenter currentNotificationCenter] setDelegate:self];
+    self.notiContent.categoryIdentifier = @"Categroy";
+    
+    [self regiterLocalNotification:self.notiContent];
+    
+}
+-(void) addImageLocalNotification {
+    
+    NSString *imageFile = [[NSBundle mainBundle] pathForResource:@"sport" ofType:@"png"];
+    
+    UNNotificationAttachment *imageAttachment = [UNNotificationAttachment attachmentWithIdentifier:@"iamgeAttachment" URL:[NSURL fileURLWithPath:imageFile] options:nil error:nil];
+    self.notiContent.attachments = @[imageAttachment];
+
+}
+//设置通知消息内容
+- (void)regiterLocalNotification:(UNMutableNotificationContent *)content{
+    
+    content.title = @"消息通知";
+    content.body =self.textField.text;
+    [self addImageLocalNotification];
+
+    content.badge = @1;
+    UNNotificationSound *sound = [UNNotificationSound defaultSound];
+    content.sound = sound;
+    
+    //重复提醒，时间间隔要大于60s
+    UNTimeIntervalNotificationTrigger *trigger1 = [UNTimeIntervalNotificationTrigger triggerWithTimeInterval:5 repeats:NO];
+    NSString *requertIdentifier = @"RequestIdentifier";
+    UNNotificationRequest *request = [UNNotificationRequest requestWithIdentifier:requertIdentifier content:content trigger:trigger1];
+    [[UNUserNotificationCenter currentNotificationCenter] addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+        NSLog(@"Error:%@",error);
+    }];
+    
+}
+//显示操作内容
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler{
+    
+    NSString *categoryIdentifier = response.notification.request.content.categoryIdentifier;
+    NSLog(@"收到通知：%@",response.notification.request.content);
+    
+    if ([categoryIdentifier isEqualToString:@"Categroy"]) {
+        //识别需要被处理的拓展
+        if ([response.actionIdentifier isEqualToString:@"replyAction"]){
+            //识别用户点击的是哪个 action
+            _textResponse = (UNTextInputNotificationResponse*)response;
+            //获取输入内容
+            NSString *userText = _textResponse.userText;
+            //发送 userText 给需要接收的方法
+            NSLog(@"要发送的内容是：%@",userText);
+            //[ClassName handleUserText: userText];
+        }else if([response.actionIdentifier isEqualToString:@"enterAction"]){
+            NSLog(@"点击了进入应用按钮");
+        }else{
+            NSLog(@"点击了取消");
+        }
+        
+    }
+    completionHandler();
+}
+//只有当前处于前台才会走，加上返回方法，使在前台显示信息
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler{
+    
+    NSLog(@"执行willPresentNotificaiton");
+    completionHandler(UNNotificationPresentationOptionBadge|
+                      UNNotificationPresentationOptionSound|
+                      UNNotificationPresentationOptionAlert);
+}
+
 //发送消息内容
 - (void)sendMessage:(NSDictionary *)data {
     NSMutableDictionary *mdata = [data mutableCopy];
     mdata[MessageFieldsname] = [FIRAuth auth].currentUser.displayName;
+    mdata[textId]=[FIRAuth auth].currentUser.uid;
     NSURL *photoURL = [FIRAuth auth].currentUser.photoURL;
     if (photoURL) {
         mdata[MessageFieldsphotoURL] = [photoURL absoluteString];
@@ -189,7 +275,8 @@
     // 向firebase数据库添加数据
     _ref=[[FIRDatabase database] reference];
     [[[_ref child:@"messages"] childByAutoId] setValue:mdata];
-
+    //通知
+    [self addInteractionLocalNotification];
  }
 //消息长度变换
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(nonnull NSString *)string {
@@ -230,10 +317,10 @@ if (indexPath.row%2==0)  {
                                                                   }];
         } else {
             cell.bgImageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
+            _image=[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]]];
         }
     }
     else {
-        _table.rowHeight=100;
         cell.contentLabel.text = [NSString stringWithFormat:@"%@",text];
         NSString *photoURL = message[MessageFieldsphotoURL];
         if (photoURL) {
@@ -268,16 +355,9 @@ else{
         } failure:^(AIRequest *request, NSError *error) {
             NSLog(@"无法响应,错误为：%@",error);
         }];
-        //设置长按手势
-        UILongPressGestureRecognizer *longPress=[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-        longPress.delegate=self;
-        longPress.minimumPressDuration=1.0;
-        [cell.bgImageView addGestureRecognizer:longPress];
-        [longPress release];
         return cell;
     }
 }
-
 //选择图片发送
 - (IBAction)didTapAddPhoto:(id)sender {
     UIImagePickerController * picker = [[UIImagePickerController alloc] init];
@@ -313,7 +393,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                                                 NSLog(@"Error uploading: %@", error);
                                                 return;
                                             }
-                                            [self sendMessage:@{MessageFieldsimageURL:[_storageRef child:metadata.path].description}];
+                                            [self sendMessage:@{MessageFieldsimageURL:[_storageRef child:metadata.path].description,textId:_userId}];
                                         }
                                         ];
                                    }];
@@ -332,7 +412,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                                             NSLog(@"Error uploading: %@", error);
                                             return;
                                         }
-                                        [self sendMessage:@{MessageFieldsimageURL:[_storageRef child:metadata.path].description}];
+                                        [self sendMessage:@{MessageFieldsimageURL:[_storageRef child:metadata.path].description,textId:_userId}];
                                     }];
     }
 }

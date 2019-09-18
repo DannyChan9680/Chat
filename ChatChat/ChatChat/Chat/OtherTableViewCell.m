@@ -1,5 +1,5 @@
 //
-//  ChatViewController.h
+//  OtherTableViewCell.m
 //  ChatChat
 //
 //  Created by Civet on 2019/8/26.
@@ -74,7 +74,7 @@
     
     [self.contentView addSubview:self.iconImageView];
     [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.equalTo(weakSelf.contentView).offset(15);
+        make.leading.equalTo(weakSelf.contentView).offset(1);
         make.top.equalTo(weakSelf.contentView).offset(15);
         make.width.height.equalTo(@60);
     }];

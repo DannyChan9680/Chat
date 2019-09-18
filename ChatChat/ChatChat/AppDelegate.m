@@ -5,17 +5,16 @@
 //  Created by Civet on 2019/8/21.
 //  Copyright © 2019 limeixiang. All rights reserved.
 //
-
+#import <UserNotifications/UserNotifications.h>
 #import "AppDelegate.h"
 #import "LoginViewController.h"
 #import "ChatUserTableViewController.h"
 #import "ChatViewController.h"
+#import "Contants.h"
 #import "Firebase.h"
 #import "ApiAI.h"
-@interface AppDelegate ()
-
+@interface AppDelegate ()<UNUserNotificationCenterDelegate>
 @end
-
 @implementation AppDelegate
 
 
@@ -24,7 +23,7 @@
 
     self.window=[[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     //这里加载第一个页面；
-    UINavigationController *navC = [[UINavigationController alloc]initWithRootViewController:[[LoginViewController alloc]init]];
+    UINavigationController *navC = [[UINavigationController alloc]initWithRootViewController:[[ChatViewController alloc]init]];
     
     self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = navC;
@@ -34,18 +33,32 @@
     [FIRApp configure];
     [FIRDatabase.database persistenceEnabled];
     
+    
+    //连接dialogflow
     AIDefaultConfiguration * configuration =[[AIDefaultConfiguration alloc] init];
     configuration.clientAccessToken=@"37f3fb6092eb4cf09dc587c109205a8b";
     _apiai=[ApiAI sharedApiAI];
     [_apiai setConfiguration:configuration];
-    
+    //注册通知
+    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+    center.delegate = self;
+    [center requestAuthorizationWithOptions:(UNAuthorizationOptionBadge | UNAuthorizationOptionSound | UNAuthorizationOptionAlert) completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        if (granted) {
+            NSLog(@"request authorization successed!");
+        }
+    }];
+    //之前注册推送服务，用户点击了同意还是不同意，以及用户之后又做了怎样的更改我们都无从得知，现在 apple 开放了这个 API，我们可以直接获取到用户的设定信息了。
+    [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
+        NSLog(@"%@",settings);
+    }];
+
     return YES;
 }
 
-
-- (void)applicationWillResignActive:(UIApplication *)application {
+- (void)applicationWillResignActive:(UIApplication *)application
+{
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
 

@@ -12,6 +12,7 @@
 		6402F1E42317ACE70020BD6C /* OtherTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6402F1E02317ACDE0020BD6C /* OtherTableViewCell.m */; };
 		6402F1E52317ACE70020BD6C /* MeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6402F1E12317ACE20020BD6C /* MeTableViewCell.m */; };
 		64037BAE2314B4E400272F0F /* ChatUserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 64037BAD2314B4E400272F0F /* ChatUserTableViewController.m */; };
+		640FC5862330BF1F00CBBFEA /* sport.png in Resources */ = {isa = PBXBuildFile; fileRef = 640FC5852330BF1F00CBBFEA /* sport.png */; };
 		6410B51E23136D2400B237A8 /* FinePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6410B51A23136D2300B237A8 /* FinePasswordViewController.m */; };
 		6410B51F23136D2400B237A8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6410B51D23136D2400B237A8 /* RegisterViewController.m */; };
 		6410B5262313B54E00B237A8 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6410B5252313B54E00B237A8 /* ChatViewController.m */; };
@@ -38,6 +39,7 @@
 		64037BAD2314B4E400272F0F /* ChatUserTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatUserTableViewController.m; sourceTree = "<group>"; };
 		6405DF99230E3AB200306FD2 /* ChatChat-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChatChat-Bridging-Header.h"; sourceTree = "<group>"; };
 		6405DFA4230E3E9B00306FD2 /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = System/Library/Frameworks/Network.framework; sourceTree = SDKROOT; };
+		640FC5852330BF1F00CBBFEA /* sport.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sport.png; sourceTree = "<group>"; };
 		6410B51A23136D2300B237A8 /* FinePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinePasswordViewController.m; sourceTree = "<group>"; };
 		6410B51B23136D2300B237A8 /* FinePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinePasswordViewController.h; sourceTree = "<group>"; };
 		6410B51C23136D2400B237A8 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				6400A0BD2316568500DB4F8B /* Contants.m */,
 				6410B5242313B54E00B237A8 /* ChatViewController.h */,
 				6410B5252313B54E00B237A8 /* ChatViewController.m */,
+				640FC5852330BF1F00CBBFEA /* sport.png */,
 				64037BAC2314B4E400272F0F /* ChatUserTableViewController.h */,
 				64037BAD2314B4E400272F0F /* ChatUserTableViewController.m */,
 			);
@@ -221,6 +224,7 @@
 			files = (
 				6430A446230CD5450017154E /* LaunchScreen.storyboard in Resources */,
 				6430A456230CD83B0017154E /* GoogleService-Info.plist in Resources */,
+				640FC5862330BF1F00CBBFEA /* sport.png in Resources */,
 				6430A443230CD5450017154E /* Assets.xcassets in Resources */,
 				6430A441230CD5430017154E /* Main.storyboard in Resources */,
 			);

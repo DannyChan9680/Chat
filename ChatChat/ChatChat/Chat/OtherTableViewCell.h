@@ -1,5 +1,5 @@
 //
-//  ChatViewController.h
+//  OtherTableViewCell.h
 //  ChatChat
 //
 //  Created by Civet on 2019/8/26.
