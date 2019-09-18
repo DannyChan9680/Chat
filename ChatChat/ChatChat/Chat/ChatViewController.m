@@ -298,12 +298,18 @@
     NSDictionary<NSString *, NSString *> *message=dic.value;
     NSString *imageURL=message[MessageFieldsimageURL];
     NSString *text=message[MessageFieldstext];
+    if(imageURL){
+        _table.rowHeight=200;
+    }
+    else{
+        _table.rowHeight=100;
+    }
 if (indexPath.row%2==0)  {
     //我方信息显示
     MeTableViewCell *cell=[_table dequeueReusableCellWithIdentifier:NSStringFromClass([MeTableViewCell class])];
     if (imageURL) {
+       
         if ([imageURL hasPrefix:@"gs://"]) {
-            _table.rowHeight=200;
             [[[FIRStorage storage] referenceForURL:imageURL] dataWithMaxSize:INT64_MAX
                                                                   completion:^(NSData *data, NSError *error) {
                                                                       if (error) {

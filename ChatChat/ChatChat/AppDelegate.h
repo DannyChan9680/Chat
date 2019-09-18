@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ApiAI.h"
+@import UserNotifications;
 @class LoginViewController;
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -39,6 +39,7 @@
     configuration.clientAccessToken=@"37f3fb6092eb4cf09dc587c109205a8b";
     _apiai=[ApiAI sharedApiAI];
     [_apiai setConfiguration:configuration];
+    
     //注册通知
     UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
     center.delegate = self;
@@ -51,8 +52,68 @@
     [center getNotificationSettingsWithCompletionHandler:^(UNNotificationSettings * _Nonnull settings) {
         NSLog(@"%@",settings);
     }];
-
+    //注册远程通知
+        UNAuthorizationOptions authOptions =
+        UNAuthorizationOptionAlert
+        | UNAuthorizationOptionSound
+        | UNAuthorizationOptionBadge;
+        [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:authOptions completionHandler:^(BOOL granted, NSError * _Nullable error) {
+        }];
+        
+        // For iOS 10 display notification (sent via APNS)
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+    
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
     return YES;
+}
+//远程通知处理
+- (void)showAlert:(NSDictionary *)userInfo {
+    NSString *apsKey = @"aps";
+    NSString *gcmMessage = @"alert";
+    NSString *gcmLabel = @"google.c.a.c_l";
+    
+    NSDictionary *aps = userInfo[apsKey];
+    if (aps) {
+        NSString *message = aps[gcmMessage];
+        if (message) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:userInfo[gcmLabel] message:message preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Dismiss" style:UIAlertActionStyleDestructive handler:nil];
+                [alert addAction:dismissAction];
+                [_window.rootViewController.presentedViewController presentViewController:alert animated: true completion: nil];
+            });
+        }
+    }
+}
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    // If you are receiving a notification message while your app is in the background,
+    // this callback will not be fired till the user taps on the notification launching the application.
+    [self showAlert:userInfo];
+    
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+// Handle incoming notification messages while app is in the foreground.
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+       willPresentNotification:(UNNotification *)notification
+         withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
+    // Print message ID.
+    NSDictionary *userInfo = notification.request.content.userInfo;
+    [self showAlert:userInfo];
+    
+    // Change this to your preferred presentation option
+    completionHandler(UNNotificationPresentationOptionNone);
+}
+
+// Handle notification messages after display notification is tapped by the user.
+- (void)userNotificationCenter:(UNUserNotificationCenter *)center
+didReceiveNotificationResponse:(UNNotificationResponse *)response
+         withCompletionHandler:(void (^)())completionHandler {
+    NSDictionary *userInfo = response.notification.request.content.userInfo;
+    [self showAlert:userInfo];
+    
+    completionHandler();
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
