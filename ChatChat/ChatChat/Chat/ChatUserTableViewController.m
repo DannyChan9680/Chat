@@ -18,9 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //聊天界面获取用户界面的数值
-    ChatViewController * chatView=[[ChatViewController alloc] init];
-    chatView.userId=_textField.text;
     
     _textField=[[UITextField alloc] initWithFrame:CGRectMake(50, 95, 250, 30)];
     [_textField setBorderStyle:UITextBorderStyleRoundedRect];
@@ -88,15 +85,18 @@
 }
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     //跳转聊天界面；
     ChatViewController *chatView=[[ChatViewController alloc] init];
+    //聊天界面获取用户界面的数值
+    chatView.userId=_textField.text;
+    NSLog(@"界面传值为：%@",chatView.userId);
     //如果包含导航栏的话，需要使用如下方式进行界面跳转；不能使用presentViewController进行跳转;
     [self.navigationController pushViewController:chatView animated:true];
 }
 -(void)createUser
 {
     [_arrayData addObject:_textField.text];
-    _textField.text=@"";
     [_tableview reloadData];
 }
 /*

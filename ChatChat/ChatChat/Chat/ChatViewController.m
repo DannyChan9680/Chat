@@ -58,7 +58,7 @@
     [self.view addSubview:_sendButton2];
     [self.view addSubview:_textField];
     
-    self.userId=@"我";
+    NSLog(@"所用的用户ID为%@",self.userId);
     self.title=@"聊天";
     
     self.view.backgroundColor=[UIColor whiteColor];
@@ -176,7 +176,7 @@
 }
 //发送文字消息
 - (IBAction)didSendMessage:(UIButton *)sender {
-    [self textFieldShouldReturn:_textField textId:_userId];
+    [self textFieldShouldReturn:_textField textId:self.userId];
 }
 //设置消息代理
 - (BOOL)textFieldShouldReturn:(UITextField *)textField textId:(NSString*) userId {
