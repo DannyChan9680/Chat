@@ -9,6 +9,7 @@
 #import "FinePasswordViewController.h"
 #import "LoginViewController.h"
 #import "FirebaseAuth.h"
+#import "Masonry.h"
 @interface FinePasswordViewController ()
 
 @end
@@ -21,10 +22,16 @@
     //找回密码页面
       [self.navigationItem setTitle:@"找回密码"];
     //控件
-    _emailTextField= [[UITextField alloc] initWithFrame:CGRectMake(90, 220, 180, 30)];
+//    _emailTextField= [[UITextField alloc] initWithFrame:CGRectMake(90, 220, 180, 30)];
     _emailTextField.borderStyle = UITextBorderStyleRoundedRect;
     _emailTextField.placeholder = @"请输入电子邮箱";
     [self.view addSubview:_emailTextField];
+    [_emailTextField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_top).with.offset(200);
+        make.left.equalTo(self.view.mas_left).with.offset(90);
+        make.width.equalTo(@180);
+        make.height.equalTo(@30);
+    }];
     [_emailTextField release];
     
     UIButton *finon = [UIButton buttonWithType:UIButtonTypeSystem];
@@ -32,7 +39,13 @@
     [finon setTitle:@"找回" forState:UIControlStateNormal];
     [finon addTarget:self action:@selector(FinePassword:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:finon];
-    
+    [finon mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_top).with.offset(280);
+        make.left.equalTo(self.view.mas_left).with.offset(90);
+        make.width.equalTo(@50);
+        make.height.equalTo(@50);
+    }];
+
 }
 -(void) FinePassword:(UIButton* )btn
 {

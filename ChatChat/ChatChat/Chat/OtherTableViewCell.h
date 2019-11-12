@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface OtherTableViewCell : UITableViewCell
+@property(strong ,nonatomic)UILongPressGestureRecognizer *longPressGesture;
 
 @property(nonatomic,strong)UIImageView *iconImageView;
 

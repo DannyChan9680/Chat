@@ -8,7 +8,7 @@
 
 #import "OtherTableViewCell.h"
 #import "Masonry.h"
-
+#import "Contants.h"
 @implementation OtherTableViewCell
 
 -(UIImageView *)iconImageView{
@@ -39,6 +39,13 @@
         _contentLabel=[UILabel new];
         _contentLabel.font=[UIFont systemFontOfSize:15];
         _contentLabel.numberOfLines=0;
+      
+        //设置长按手势
+        UILongPressGestureRecognizer * longPressGesture=[[UILongPressGestureRecognizer alloc] initWithTarget:self  action:@selector(longPress:)];
+        _contentLabel.userInteractionEnabled = YES;
+        [self.contentLabel addGestureRecognizer:longPressGesture];
+        [self.contentView addSubview:self.contentLabel];
+
     }
     return _contentLabel;
 }
@@ -48,6 +55,7 @@
     if (_bgImageView==nil) {
         _bgImageView=[UIImageView new];
         _bgImageView.image=[UIImage imageNamed:@"chat_recive_nor"];
+        _bgImageView.userInteractionEnabled = YES;
     }
     return _bgImageView;
 }
@@ -64,10 +72,42 @@
         
         [self prepareSubviews];
     }
-    
+
     return self;
 }
-
+- (BOOL)canBecomeFirstResponder{
+    return YES;
+}
+// 长按操作
+-(void)longPress:(UILongPressGestureRecognizer *)gesture
+{
+    if(gesture.state==UIGestureRecognizerStateBegan)
+    {
+//        _contentLabel=(UILabel *)gesture.view;
+        [self becomeFirstResponder];
+        //定义菜单
+        UIMenuController *menu = [UIMenuController sharedMenuController];
+        
+        UIMenuItem *copy = [[UIMenuItem alloc] initWithTitle:@"拷贝" action:@selector(copyAction:)];
+        //设定菜单显示的区域
+        [menu setTargetRect:self.contentLabel.frame inView:self.contentLabel.superview];
+        [menu setMenuItems:@[copy]];
+        [menu setMenuVisible:YES animated:YES];
+    }
+    
+}
+//控制响应的方法
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+    return action == @selector(copyAction:);
+}
+//拷贝
+- (void)copyAction:(id)sender {
+    NSLog(@"copy");
+    //拷贝操作
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    [pasteboard setString:_contentLabel.text];
+}
 -(void)prepareSubviews{
     
     __weak typeof(self) weakSelf=self;

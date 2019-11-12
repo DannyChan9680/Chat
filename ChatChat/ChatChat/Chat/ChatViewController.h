@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, weak) UITextView *textField;
 @property(nonatomic, weak)  UIButton *sendButton1;
 @property(nonatomic, weak)  UIButton *sendButton2;
-@property(weak ,nonatomic)  UITableView * table;
+@property(strong ,nonatomic)  UITableView * table;
 
 @property (strong ,nonatomic) NSString * userId;
 @property (strong, nonatomic) FIRDatabaseReference *ref;

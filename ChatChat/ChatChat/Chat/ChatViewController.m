@@ -27,52 +27,75 @@
     _image=[[UIImage alloc] init];
     
     //设置表单信息
-    _table=[[UITableView alloc] initWithFrame:CGRectMake(0, 0, 430, 820)];
+    _table = [[UITableView alloc] init];
+    [self.view  addSubview:_table];
     _table.separatorColor=[UIColor clearColor];
     _table.delegate=self;
     _table.dataSource=self;
-    _table.rowHeight=UITableViewAutomaticDimension;
+//    _table.rowHeight=UITableViewAutomaticDimension;
     //发送图片按钮
     _sendButton1= [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _sendButton1.frame=CGRectMake(10, 820, 50, 50);
     _sendButton1.backgroundColor=[UIColor greenColor];
     [_sendButton1 setTitle:@"图片" forState:UIControlStateNormal];
     [_sendButton1 addTarget:self action:@selector(didTapAddPhoto:) forControlEvents:UIControlEventTouchUpInside];
+
     //消息文本
-    _textField=[[UITextView alloc] initWithFrame:CGRectMake(70, 820, 280, 50)];
+//    _textField=[[UITextView alloc] initWithFrame:CGRectMake(70, 820, 280, 50)];
+    _textField=[[UITextView alloc] init];
     _textField.tintColor=[UIColor grayColor];
     _textField.layer.backgroundColor=[[UIColor clearColor] CGColor];
     _textField.layer.borderColor=[[UIColor grayColor] CGColor];
     _textField.layer.borderWidth=1.0;
     _textField.font=[UIFont systemFontOfSize:20];
     [_textField.layer setMasksToBounds:YES];
+
     //发送文字按钮
     _sendButton2= [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    _sendButton2.frame=CGRectMake(360, 820, 50, 50);
     _sendButton2.backgroundColor=[UIColor greenColor];
     [_sendButton2 setTitle:@"发送" forState:UIControlStateNormal];
     [_sendButton2 addTarget:self action:@selector(didSendMessage:) forControlEvents:UIControlEventTouchUpInside];
     
-    //界面加载控件
+    [self.view addSubview:_textField];
     [self.view addSubview:_sendButton1];
     [self.view addSubview:_sendButton2];
-    [self.view addSubview:_textField];
+    
+    [_table mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view.mas_top).with.offset(10);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-70);
+        make.width.equalTo(self.view.mas_width);
+//        make.height.equalTo(@600);
+    }];
+
+    [_sendButton1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-15);
+        make.left.equalTo(self.view.mas_left).with.offset(10);
+        make.width.height.equalTo(@50);
+    }];
+    
+    [_textField mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-15);
+//        make.left.equalTo(self.view.mas_left).width.offset(60);
+        make.left.equalTo(_sendButton1.mas_right).offset(10);
+        make.right.equalTo(_sendButton2.mas_left).offset(-10);
+        make.height.equalTo(@50);
+    }];
+    
+    [self.view addSubview:_sendButton2];
+    [_sendButton2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-15);
+        make.right.equalTo(self.view.mas_right).with.offset(-10);
+        make.width.height.equalTo(@50);
+    }];
     
     NSLog(@"所用的用户ID为%@",self.userId);
     self.title=@"聊天";
     
     self.view.backgroundColor=[UIColor whiteColor];
-    [self.view addSubview:_table];
+    
     //cell注册
     [_table registerClass:[MeTableViewCell class] forCellReuseIdentifier:NSStringFromClass([MeTableViewCell class])];
     [_table registerClass:[OtherTableViewCell class] forCellReuseIdentifier:NSStringFromClass([OtherTableViewCell class])];
-    //设置长按手势
-    UILongPressGestureRecognizer *longPress=[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(handleLongPress:)];
-    longPress.delegate=self;
-    longPress.minimumPressDuration=0.5;
-    OtherTableViewCell *cell=[_table dequeueReusableCellWithIdentifier:NSStringFromClass([OtherTableViewCell class])];
-    [cell addGestureRecognizer:longPress];
-    [longPress release];
+
     //方法调用
     [self configureDatabase];
     [self configureStorage];
@@ -113,23 +136,6 @@
 //- (IBAction)didPressFreshConfig:(id)sender {
 //    [self fetchConfig];
 //}
-//文本翻译
-// 长按操作
--(void)handleLongPress:(UILongPressGestureRecognizer *)gesture
-{
-    if(gesture.state == UIGestureRecognizerStateBegan)
-    {
-        CGPoint point = [gesture locationInView:_table];
-        NSIndexPath * indexPath = [_table indexPathForRowAtPoint:point];
-        NSLog(@"%ld" ,indexPath.section);
-    }
-    if(gesture.state==UIGestureRecognizerStateEnded)
-    {
-        UIAlertView * alert=[[UIAlertView alloc] initWithTitle:@"翻译" message:nil delegate:self cancelButtonTitle:@"返回" otherButtonTitles:@"确定", nil];
-        [alert show];
-    }
-}
-
 //使用ML KIT 进行智能回复
 //-(void) SmartReply:(FIRSmartReply *)smartReply
 //{

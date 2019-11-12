@@ -79,7 +79,7 @@
     
     [self.contentView addSubview:self.iconImageView];
     [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.trailing.equalTo(weakSelf.contentView).offset(-15);
+        make.trailing.equalTo(weakSelf.contentView).offset(-1);
         make.top.equalTo(weakSelf.contentView).offset(15);
         make.width.height.equalTo(@60);
     }];
@@ -87,7 +87,7 @@
     [self.contentView addSubview:self.nameLabel];
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.iconImageView);
-        make.trailing.equalTo(weakSelf.iconImageView.mas_leading).offset(-8);
+    make.trailing.equalTo(weakSelf.iconImageView.mas_leading).offset(-8);
         make.height.equalTo(@20);
         make.width.equalTo(@100);
     }];

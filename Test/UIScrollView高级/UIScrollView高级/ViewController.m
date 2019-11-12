@@ -25,11 +25,11 @@
     //是否允许通过点击屏幕让滚动视图响应事件
     _scrollView.userInteractionEnabled=NO;
     //设置画布大小
-    _scrollView.contentSize=CGSizeMake(300, 400*9);
+    _scrollView.contentSize=CGSizeMake(300, 400);
     
-    for(int i=0; i<9;i++)
+    for(int i=1; i<3;i++)
     {
-        NSString* strName=[NSString stringWithFormat:@"1.jpg",i+1];
+        NSString* strName=[NSString stringWithFormat:@"%d.JPG",i++];
         UIImage* image=[UIImage imageNamed:strName];
         
         UIImageView* iView=[[UIImageView alloc] init];

@@ -28,25 +28,24 @@
     sv.contentSize=CGSizeMake(320*5,576);
     //设置边缘弹动效果
     sv.bounces=YES;
-    //设置横向弹动效果
-    sv.alwaysBounceHorizontal=YES;
-    //设置纵向y弹动效果
-    sv.alwaysBounceVertical=YES;
-    //设置横纵向滚动条
-    sv.showsVerticalScrollIndicator=YES;
-    sv.showsHorizontalScrollIndicator=YES;
+//    //设置横向弹动效果
+//    sv.alwaysBounceHorizontal=YES;
+//    //设置纵向y弹动效果
+//    sv.alwaysBounceVertical=YES;
+//    //设置横纵向滚动条
+//    sv.showsVerticalScrollIndicator=YES;
+//    sv.showsHorizontalScrollIndicator=YES;
     //设置背景颜色
     sv.backgroundColor=[UIColor orangeColor];
-    for(int i=0; i<5 ;i++)
+    for(int i=1; i<5 ;i++)
     {
-        NSString* strName=[NSString stringWithFormat:@"1.jpg",i+1];
+        NSString* strName=[NSString stringWithFormat:@"%d.JPG",i];
         UIImage* image=[UIImage imageNamed:strName];
         
         UIImageView* iView=[[UIImageView alloc] initWithImage:image];
         
-        iView.frame=CGRectMake(320*i, 0, 320, 576);
-        
         [sv addSubview:iView];
+        
     }
     
     [self.view addSubview:sv];

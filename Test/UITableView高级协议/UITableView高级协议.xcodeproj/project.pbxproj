@@ -13,9 +13,15 @@
 		6401162222F1660900EFBD47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6401162122F1660900EFBD47 /* Assets.xcassets */; };
 		6401162522F1660900EFBD47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6401162322F1660900EFBD47 /* LaunchScreen.storyboard */; };
 		6401162822F1660900EFBD47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6401162722F1660900EFBD47 /* main.m */; };
+		6403577123417FEA002ABFAD /* Data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6403577023417FEA002ABFAD /* Data.plist */; };
+		6417F74A23403FF0000BC4A1 /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 6417F74923403FF0000BC4A1 /* Friend.m */; };
+		6417F74D23404030000BC4A1 /* FriendGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 6417F74C23404030000BC4A1 /* FriendGroup.m */; };
+		6417F74F234096FF000BC4A1 /* friend.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6417F74E234096FF000BC4A1 /* friend.plist */; };
+		966D62B37D57F7FCB9EC0E54 /* libPods-UITableView高级协议.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83D0105BB7FDC7047C7EF359 /* libPods-UITableView高级协议.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		58DFF4C3B05197FC397FB988 /* Pods-UITableView高级协议.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITableView高级协议.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UITableView高级协议/Pods-UITableView高级协议.debug.xcconfig"; sourceTree = "<group>"; };
 		6401161522F1660900EFBD47 /* UITableView高级协议.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UITableView高级协议.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6401161822F1660900EFBD47 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6401161922F1660900EFBD47 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -26,6 +32,14 @@
 		6401162422F1660900EFBD47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6401162622F1660900EFBD47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6401162722F1660900EFBD47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6403577023417FEA002ABFAD /* Data.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Data.plist; sourceTree = "<group>"; };
+		6417F74823403FF0000BC4A1 /* Friend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Friend.h; sourceTree = "<group>"; };
+		6417F74923403FF0000BC4A1 /* Friend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Friend.m; sourceTree = "<group>"; };
+		6417F74B23404030000BC4A1 /* FriendGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendGroup.h; sourceTree = "<group>"; };
+		6417F74C23404030000BC4A1 /* FriendGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendGroup.m; sourceTree = "<group>"; };
+		6417F74E234096FF000BC4A1 /* friend.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = friend.plist; sourceTree = "<group>"; };
+		83D0105BB7FDC7047C7EF359 /* libPods-UITableView高级协议.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UITableView高级协议.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B600EE93B8C5D5C556948703 /* Pods-UITableView高级协议.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITableView高级协议.release.xcconfig"; path = "Pods/Target Support Files/Pods-UITableView高级协议/Pods-UITableView高级协议.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +47,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				966D62B37D57F7FCB9EC0E54 /* libPods-UITableView高级协议.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16D4B5174E04BE673126B78E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				58DFF4C3B05197FC397FB988 /* Pods-UITableView高级协议.debug.xcconfig */,
+				B600EE93B8C5D5C556948703 /* Pods-UITableView高级协议.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6401160C22F1660900EFBD47 = {
 			isa = PBXGroup;
 			children = (
 				6401161722F1660900EFBD47 /* UITableView高级协议 */,
 				6401161622F1660900EFBD47 /* Products */,
+				16D4B5174E04BE673126B78E /* Pods */,
+				B9B9C2812E9CC5DCCC2ACFB4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,8 +93,22 @@
 				6401162322F1660900EFBD47 /* LaunchScreen.storyboard */,
 				6401162622F1660900EFBD47 /* Info.plist */,
 				6401162722F1660900EFBD47 /* main.m */,
+				6417F74823403FF0000BC4A1 /* Friend.h */,
+				6417F74923403FF0000BC4A1 /* Friend.m */,
+				6417F74B23404030000BC4A1 /* FriendGroup.h */,
+				6417F74C23404030000BC4A1 /* FriendGroup.m */,
+				6417F74E234096FF000BC4A1 /* friend.plist */,
+				6403577023417FEA002ABFAD /* Data.plist */,
 			);
 			path = "UITableView高级协议";
+			sourceTree = "<group>";
+		};
+		B9B9C2812E9CC5DCCC2ACFB4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83D0105BB7FDC7047C7EF359 /* libPods-UITableView高级协议.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -78,6 +118,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6401162B22F1660900EFBD47 /* Build configuration list for PBXNativeTarget "UITableView高级协议" */;
 			buildPhases = (
+				BD4F6D6329FD5ADF3BB527B5 /* [CP] Check Pods Manifest.lock */,
 				6401161122F1660900EFBD47 /* Sources */,
 				6401161222F1660900EFBD47 /* Frameworks */,
 				6401161322F1660900EFBD47 /* Resources */,
@@ -129,21 +170,46 @@
 			buildActionMask = 2147483647;
 			files = (
 				6401162522F1660900EFBD47 /* LaunchScreen.storyboard in Resources */,
+				6403577123417FEA002ABFAD /* Data.plist in Resources */,
 				6401162222F1660900EFBD47 /* Assets.xcassets in Resources */,
+				6417F74F234096FF000BC4A1 /* friend.plist in Resources */,
 				6401162022F1660900EFBD47 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BD4F6D6329FD5ADF3BB527B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UITableView高级协议-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		6401161122F1660900EFBD47 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6417F74D23404030000BC4A1 /* FriendGroup.m in Sources */,
 				6401161D22F1660900EFBD47 /* ViewController.m in Sources */,
 				6401162822F1660900EFBD47 /* main.m in Sources */,
 				6401161A22F1660900EFBD47 /* AppDelegate.m in Sources */,
+				6417F74A23403FF0000BC4A1 /* Friend.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +349,7 @@
 		};
 		6401162C22F1660900EFBD47 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58DFF4C3B05197FC397FB988 /* Pods-UITableView高级协议.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +366,7 @@
 		};
 		6401162D22F1660900EFBD47 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B600EE93B8C5D5C556948703 /* Pods-UITableView高级协议.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

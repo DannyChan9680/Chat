@@ -20,7 +20,7 @@
     //创建数据视图
     _tableView=[[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
     //设置数据视图的代理对象
-    _tableView.dragDelegate=self;
+    _tableView.delegate=self;
     //设置数据视图的数据源对象
     _tableView.dataSource=self;
     //显示数据视图
